@@ -1,0 +1,177 @@
+{
+  "auditor": "claude-haiku",
+  "grades": {
+    "q01": "correct",
+    "q02": "correct",
+    "q03": "correct",
+    "q04": "correct",
+    "q05": "partial",
+    "q07": "correct",
+    "q08": "incorrect",
+    "q09": "incorrect",
+    "q10": "partial",
+    "q11": "correct",
+    "q12": "partial",
+    "q13": "correct",
+    "q14": "correct",
+    "q16": "partial",
+    "q17": "correct",
+    "q18": "correct",
+    "q19": "correct",
+    "q20": "partial",
+    "q21": "correct",
+    "q22": "incorrect",
+    "q23": "correct",
+    "q24": "incorrect",
+    "q25": "correct",
+    "q28": "partial",
+    "q29": "correct",
+    "q30": "correct",
+    "q31": "incorrect",
+    "q32": "incorrect",
+    "q34": "incorrect",
+    "q35": "correct",
+    "q36": "incorrect",
+    "q37": "incorrect",
+    "q38": "correct",
+    "q39": "correct",
+    "q40": "partial",
+    "q41": "correct",
+    "q43": "partial",
+    "q44": "correct",
+    "q45": "incorrect",
+    "q46": "incorrect",
+    "q47": "incorrect",
+    "q48": "correct",
+    "q50": "incorrect",
+    "q51": "incorrect",
+    "q52": "correct",
+    "q53": "correct",
+    "q55": "correct",
+    "q56": "correct",
+    "q57": "correct",
+    "q58": "correct",
+    "q59": "incorrect",
+    "q60": "correct"
+  },
+  "stats": {
+    "n": 52,
+    "exact_agreement": 0.7115,
+    "cohens_kappa": 0.479,
+    "confusion_rows_judge_cols_auditor": {
+      "correct": {
+        "correct": 27,
+        "partial": 5,
+        "incorrect": 2
+      },
+      "partial": {
+        "correct": 2,
+        "partial": 1,
+        "incorrect": 4
+      },
+      "incorrect": {
+        "correct": 0,
+        "partial": 2,
+        "incorrect": 9
+      }
+    },
+    "disagreements": {
+      "q02": {
+        "judge": "partial",
+        "auditor": "correct",
+        "reason": "It mentions the removal of redundant names but incorrectly provides an example that does not match the new syntax."
+      },
+      "q05": {
+        "judge": "correct",
+        "auditor": "partial",
+        "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+      },
+      "q08": {
+        "judge": "partial",
+        "auditor": "incorrect",
+        "reason": "It covers some key points but misses the temporary overlay and type parameters aspects."
+      },
+      "q09": {
+        "judge": "partial",
+        "auditor": "incorrect",
+        "reason": "It mentions readability and semantics but misses the key point about assignment statement vs expression."
+      },
+      "q10": {
+        "judge": "correct",
+        "auditor": "partial",
+        "reason": "The candidate answer accurately conveys the key facts about the timing of the beta phase and its relation to PyCon US sprints."
+      },
+      "q12": {
+        "judge": "correct",
+        "auditor": "partial",
+        "reason": "The candidate answer accurately conveys the key fact that explicit declaration of dynamic fields ensures tools can correctly handle and validate metadata."
+      },
+      "q16": {
+        "judge": "incorrect",
+        "auditor": "partial",
+        "reason": "Non-ASCII identifiers are normalized to NFKC, not NFC."
+      },
+      "q18": {
+        "judge": "partial",
+        "auditor": "correct",
+        "reason": "It mentions lazy evaluation but incorrectly states it's specific to PEP 695 and Python 3.12/3.13."
+      },
+      "q28": {
+        "judge": "correct",
+        "auditor": "partial",
+        "reason": "The candidate answer accurately conveys the key facts about immortality and marking objects as such in the free-threading proposal."
+      },
+      "q31": {
+        "judge": "partial",
+        "auditor": "incorrect",
+        "reason": "It mentions making print a function but misses the key points about application-level functionality and syntax."
+      },
+      "q36": {
+        "judge": "correct",
+        "auditor": "incorrect",
+        "reason": "The candidate answer accurately captures the main issue of ambiguity between coroutines and generators, which led to redesigning native coroutines as a distinct type."
+      },
+      "q40": {
+        "judge": "incorrect",
+        "auditor": "partial",
+        "reason": "PEP numbers are wrong."
+      },
+      "q43": {
+        "judge": "correct",
+        "auditor": "partial",
+        "reason": "The candidate answer conveys the key facts of the reference answer."
+      },
+      "q50": {
+        "judge": "correct",
+        "auditor": "incorrect",
+        "reason": "The candidate answer accurately states that PEP 484 does not specify how to handle undefined names in type hints, which aligns with the reference answer."
+      },
+      "q51": {
+        "judge": "partial",
+        "auditor": "incorrect",
+        "reason": "It partially addresses the key fact about the placement but does not correctly state the limit on the number of catch-all cases."
+      }
+    },
+    "judge_more_lenient_count": 11,
+    "judge_harsher_count": 4,
+    "judge_harsher_ids": [
+      "q02",
+      "q16",
+      "q18",
+      "q40"
+    ],
+    "judge_more_lenient_ids": [
+      "q05",
+      "q08",
+      "q09",
+      "q10",
+      "q12",
+      "q28",
+      "q31",
+      "q36",
+      "q43",
+      "q50",
+      "q51"
+    ]
+  }
+}

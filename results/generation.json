@@ -1,0 +1,3899 @@
+{
+ "dense_plain": {
+  "summary": {
+   "accuracy": 0.692,
+   "accuracy[factual]": 0.8,
+   "accuracy[named]": 0.583,
+   "accuracy[multi]": 0.5,
+   "refusal_accuracy[unanswerable]": 1.0,
+   "false_refusal_rate": 0.192,
+   "citation_precision": 0.881,
+   "hallucinated_citation_rate": 0.0,
+   "uncited_answer_rate": 0.0,
+   "latency_p50_s": 3.86
+  },
+  "rows": [
+   {
+    "id": "q01",
+    "type": "factual",
+    "question": "How long are the deprecated typing aliases for builtin collections guaranteed to stay before they could be removed?",
+    "gold": "Removal will occur no sooner than Python 3.9's end of life, scheduled for October 2025.",
+    "gold_peps": [
+     585
+    ],
+    "answer": "The deprecated typing aliases for built-in collections are recommended to be allowed until Python 3.9's end of life, scheduled for October 2025 [PEP 585].",
+    "citations": [
+     585
+    ],
+    "retrieved_peps": [
+     585,
+     702,
+     3151
+    ],
+    "refused": false,
+    "latency": 3.9383131999638863,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q02",
+    "type": "multi",
+    "question": "How did the new generics syntax change declaring a type variable compared with the original TypeVar factory approach?",
+    "gold": "Originally TypeVar was a factory called with a redundant quoted name; the new syntax removes the need for that redundant name.",
+    "gold_peps": [
+     484,
+     695
+    ],
+    "answer": "The new generics syntax allows specifying type variables directly within class and function definitions, without using the `typing.TypeVar` factory. For example, instead of defining a type variable as `T = TypeVar('T')`, you can now declare it directly in the definition like `class ClassA[T: str]:`. This simplifies the syntax and makes it more similar to other modern programming languages [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     484,
+     646,
+     695
+    ],
+    "refused": false,
+    "latency": 4.9629310999880545,
+    "verdict": "partial",
+    "reason": "It mentions the removal of redundant names but incorrectly provides an example that does not match the new syntax."
+   },
+   {
+    "id": "q03",
+    "type": "factual",
+    "question": "Why was JSON rejected as the file format for declaring build requirements?",
+    "gold": "Its syntax is verbose and hard for humans to edit, and it does not allow comments.",
+    "gold_peps": [
+     518
+    ],
+    "answer": "The JSON format was initially considered but quickly rejected because it is more verbose than necessary and does not allow for comments, making it less suitable for human editing [PEP 518].",
+    "citations": [
+     518
+    ],
+    "retrieved_peps": [
+     516,
+     517,
+     518,
+     739,
+     751
+    ],
+    "refused": false,
+    "latency": 3.518152399978135,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q04",
+    "type": "named",
+    "question": "Until roughly when does PEP 745 say security updates for Python 3.14 are expected?",
+    "gold": "Until approximately October 2030, five years after 3.14.0 final (source-only).",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Security updates for Python 3.14 are expected until approximately October 2030 [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     392,
+     499,
+     745,
+     790,
+     2026
+    ],
+    "refused": false,
+    "latency": 4.570731800049543,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q05",
+    "type": "multi",
+    "question": "What did generator functions originally forbid on return statements, and how did yield from later change what return does in a generator?",
+    "gold": "The original generators proposal disallowed an expression on return; the yield from proposal makes return expr raise StopIteration(expr).",
+    "gold_peps": [
+     255,
+     380
+    ],
+    "answer": "Generator functions originally forbade expressions on return statements [PEP 255]. Later, the `yield from` expression allowed returns to include values, changing the semantics of return in generators [PEP 380].",
+    "citations": [
+     255,
+     380
+    ],
+    "retrieved_peps": [
+     255,
+     380,
+     479
+    ],
+    "refused": false,
+    "latency": 3.755256200034637,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q06",
+    "type": "unanswerable",
+    "question": "How does PyTorch's autograd engine record operations to build the backward graph?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     234,
+     669,
+     813,
+     817
+    ],
+    "refused": true,
+    "latency": 4.862777300004382,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q07",
+    "type": "named",
+    "question": "According to PEP 8, what is the maximum line length for docstrings and comments?",
+    "gold": "72 characters (79 for other lines).",
+    "gold_peps": [
+     8
+    ],
+    "answer": "According to PEP 8 [PEP 8], the maximum line length for docstrings and comments should be limited to 72 characters.",
+    "citations": [
+     8
+    ],
+    "retrieved_peps": [
+     8,
+     256,
+     257,
+     436
+    ],
+    "refused": false,
+    "latency": 3.471750000026077,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from PEP 8."
+   },
+   {
+    "id": "q08",
+    "type": "factual",
+    "question": "How does the scope created by the new generic-class syntax differ from an ordinary function or class scope?",
+    "gold": "It acts like a temporary overlay on the containing scope, containing only the new type parameters while other names resolve in the enclosing scope.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The new `def695` scopes, used for defining type parameters in generic classes, behave like function scopes but with some differences. Specifically, names defined in a class scope can be accessed within a `def695` scope that is immediately within the class scope, whereas regular functions cannot access names defined within an enclosing class scope [PEP 695]. Additionally, certain constructs such as `yield`, `await`, and the walrus operator are disallowed directly within a `def695` scope [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     577,
+     695,
+     718
+    ],
+    "refused": false,
+    "latency": 5.013860200007912,
+    "verdict": "partial",
+    "reason": "It covers some key points but misses the temporary overlay and type parameters aspects."
+   },
+   {
+    "id": "q09",
+    "type": "factual",
+    "question": "Why was the walrus operator not allowed unparenthesized as a bare expression statement?",
+    "gold": "To keep a single clear choice between an assignment statement and an assignment expression: there is no syntactic position where both are valid.",
+    "gold_peps": [
+     572
+    ],
+    "answer": "The walrus operator was not allowed unparenthesized as a bare expression statement because it is hard to read correctly and has confusing semantics, similar to mutable default values [PEP 572].",
+    "citations": [
+     572
+    ],
+    "retrieved_peps": [
+     572,
+     635,
+     642,
+     798
+    ],
+    "refused": false,
+    "latency": 3.7766527000349015,
+    "verdict": "partial",
+    "reason": "It mentions readability and semantics but misses the key point about assignment statement vs expression."
+   },
+   {
+    "id": "q10",
+    "type": "factual",
+    "question": "What benefits does a fixed annual release calendar give core developers regarding the timing of the beta phase?",
+    "gold": "Final releases always land in October, after the core sprint, and the beta phase starts in late May, after the PyCon US sprints.",
+    "gold_peps": [
+     602
+    ],
+    "answer": "A fixed annual release calendar, as described in [PEP 602], creates a predictable calendar where the beta phase starts in late May (after PyCon US sprints), which helps core developers plan their involvement in the calendar. [PEP 602]",
+    "citations": [
+     602
+    ],
+    "retrieved_peps": [
+     602,
+     605
+    ],
+    "refused": false,
+    "latency": 3.9501010999665596,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts about the timing of the beta phase and its relation to PyCon US sprints."
+   },
+   {
+    "id": "q11",
+    "type": "factual",
+    "question": "Is it legal to write a lone starred target on the left side of an assignment such as star-a equals a range?",
+    "gold": "No; using the starred expression as a lone assignment target is an error.",
+    "gold_peps": [
+     3132
+    ],
+    "answer": "No, it is not legal to use a starred expression as a lone assignment target, as in `*a = range(5)` [PEP 3132].",
+    "citations": [
+     3132
+    ],
+    "retrieved_peps": [
+     577,
+     824,
+     3132
+    ],
+    "refused": false,
+    "latency": 4.022767900023609,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q12",
+    "type": "factual",
+    "question": "Why must project metadata fields that a build backend fills in later be explicitly declared as dynamic in pyproject metadata?",
+    "gold": "So that missing metadata is unambiguous: otherwise you could not tell whether it was left out on purpose or will be supplied later by the backend.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "According to PEP 621, if a core metadata specification lists a field as \"Optional\", the metadata MAY list it in `dynamic` if the expectation is a build back-end will provide the data for the field later [PEP 621]. This ensures that tools can correctly handle and validate the metadata, requiring explicit declaration for fields to be filled in by the backend [PEP 621].",
+    "citations": [
+     621
+    ],
+    "retrieved_peps": [
+     621,
+     643,
+     808
+    ],
+    "refused": false,
+    "latency": 4.717746699985582,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that explicit declaration of dynamic fields ensures tools can correctly handle and validate metadata."
+   },
+   {
+    "id": "q13",
+    "type": "factual",
+    "question": "Who gave the @ decorator syntax its nickname, and why?",
+    "gold": "Barry Warsaw called it the 'pie-decorator' syntax, after the Pie-thon Parrot shootout of the time and because the @ looks a little like a pie.",
+    "gold_peps": [
+     318
+    ],
+    "answer": "Barry Warsaw named the @ decorator syntax as 'pie-decorator', in honor of the Pie-thon Parrot shootout which occurred around the same time as the decorator syntax was decided [PEP 318].",
+    "citations": [
+     318
+    ],
+    "retrieved_peps": [
+     318,
+     465,
+     835
+    ],
+    "refused": false,
+    "latency": 3.870984299981501,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q14",
+    "type": "factual",
+    "question": "If a Python 3 source file carries an explicit encoding declaration, does the default source encoding still apply?",
+    "gold": "No; an explicit encoding declaration takes precedence over the default.",
+    "gold_peps": [
+     3120
+    ],
+    "answer": "No, if a Python 3 source file carries an explicit encoding declaration using the magic comment [PEP 263], the default source encoding (ASCII) does not apply. The declared encoding takes precedence [PEP 263].",
+    "citations": [
+     263
+    ],
+    "retrieved_peps": [
+     263,
+     3120
+    ],
+    "refused": false,
+    "latency": 4.916138300031889,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q15",
+    "type": "unanswerable",
+    "question": "How does Kafka consumer group rebalancing interact with asyncio tasks in Python?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     654,
+     789,
+     806
+    ],
+    "refused": true,
+    "latency": 3.179991199984215,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q16",
+    "type": "multi",
+    "question": "Python 3 changed the default source file encoding from what to what, and which normalization form are non-ASCII identifiers converted to?",
+    "gold": "From ASCII to UTF-8; identifiers are normalized to NFKC.",
+    "gold_peps": [
+     3120,
+     3131
+    ],
+    "answer": "Python 3 changed the default source file encoding from ASCII to UTF-8 [PEP 3120]. Non-ASCII identifiers are converted to NFC normalization form [PEP 3131].",
+    "citations": [
+     3120,
+     3131
+    ],
+    "retrieved_peps": [
+     263,
+     685,
+     3120,
+     3131
+    ],
+    "refused": false,
+    "latency": 3.943744699994568,
+    "verdict": "incorrect",
+    "reason": "Non-ASCII identifiers are normalized to NFKC, not NFC."
+   },
+   {
+    "id": "q17",
+    "type": "factual",
+    "question": "What identifier policy applies to the standard library after non-ASCII identifiers were allowed?",
+    "gold": "Standard library identifiers must be ASCII-only and should use English words wherever feasible.",
+    "gold_peps": [
+     3131
+    ],
+    "answer": "All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible. [PEP 3131] [PEP 8]",
+    "citations": [
+     8,
+     3131
+    ],
+    "retrieved_peps": [
+     8,
+     3131
+    ],
+    "refused": false,
+    "latency": 3.632607299950905,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q18",
+    "type": "named",
+    "question": "In PEP 695, when is the value of a type alias created with the type statement evaluated?",
+    "gold": "Lazily.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The value of type aliases created through the `type` statement (:pep:`695`) uses deferred evaluation, similar to other features introduced in Python 3.12 and 3.13 [PEP 749].",
+    "citations": [
+     749
+    ],
+    "retrieved_peps": [
+     613,
+     695,
+     749,
+     846
+    ],
+    "refused": false,
+    "latency": 3.720289299963042,
+    "verdict": "partial",
+    "reason": "It mentions lazy evaluation but incorrectly states it's specific to PEP 695 and Python 3.12/3.13."
+   },
+   {
+    "id": "q19",
+    "type": "factual",
+    "question": "Does the mapping a metaclass uses to record class-body definitions have to be a full ordered dict?",
+    "gold": "No; a simple list of (key, value) pairs appended on each insertion is enough.",
+    "gold_peps": [
+     3115
+    ],
+    "answer": "No, according to PEP 3115 [PEP 3115], the metaclass does not need to use a full 'ordered dict' implementation. It can use a simpler Python list of (key,value) pairs that is appended to for each insertion.",
+    "citations": [
+     3115
+    ],
+    "retrieved_peps": [
+     372,
+     520,
+     3115
+    ],
+    "refused": false,
+    "latency": 3.9897655000095256,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that a full ordered dict is not required."
+   },
+   {
+    "id": "q20",
+    "type": "multi",
+    "question": "Which proposal introduced generators with the yield statement and which introduced generator expressions, and what motivated the latter?",
+    "gold": "PEP 255 introduced generators; PEP 289 introduced generator expressions because many list comprehension uses do not need a full list in memory.",
+    "gold_peps": [
+     255,
+     289
+    ],
+    "answer": "Generators were introduced by PEP 255 [PEP 255], which also introduced the `yield` statement. Generator expressions were not directly mentioned in the provided sources, but a relevant discussion can be found in PEP 798 [PEP 798], where it was considered to allow unpacking in generator comprehensions, though this proposal was ultimately rejected.",
+    "citations": [
+     255,
+     798
+    ],
+    "retrieved_peps": [
+     255,
+     325,
+     380,
+     798
+    ],
+    "refused": false,
+    "latency": 4.315727600012906,
+    "verdict": "partial",
+    "reason": "It correctly identifies PEP 255 for generators but does not address the introduction of generator expressions by PEP 289 or provide the motivation."
+   },
+   {
+    "id": "q21",
+    "type": "factual",
+    "question": "For how long is a given Python 3.14 line expected to get bugfix releases, and at what cadence?",
+    "gold": "About every two months for approximately 24 months.",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Python 3.14 will receive bugfix updates approximately every two months for approximately 24 months [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     392,
+     602,
+     745,
+     790,
+     826
+    ],
+    "refused": false,
+    "latency": 3.6642749999882653,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q22",
+    "type": "named",
+    "question": "In PEP 544, what is a class called if it includes a protocol in its MRO?",
+    "gold": "An explicit subclass of the protocol.",
+    "gold_peps": [
+     544
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     532,
+     544,
+     622,
+     684
+    ],
+    "refused": true,
+    "latency": 2.8852415999863297,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q23",
+    "type": "factual",
+    "question": "Why can't a yield be placed inside a try block that has a finally clause in generator functions?",
+    "gold": "There is no guarantee the generator will ever be resumed, hence no guarantee the finally block will run.",
+    "gold_peps": [
+     255
+    ],
+    "answer": "A yield statement is not allowed in the try clause of a try-finally statement inside a generator because the finally clause execution cannot be guaranteed or enforced [PEP 255].",
+    "citations": [
+     255
+    ],
+    "retrieved_peps": [
+     255,
+     325,
+     334,
+     342,
+     346
+    ],
+    "refused": false,
+    "latency": 3.4942623000242747,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q24",
+    "type": "multi",
+    "question": "What were the scheduled final release dates of Python 3.8.0 and Python 3.10.0?",
+    "gold": "3.8.0 final: 2019-10-14; 3.10.0 final: 2021-10-04.",
+    "gold_peps": [
+     569,
+     619
+    ],
+    "answer": "I don't know based on the PEPs. The sources provide information about the release schedules and lifespans but do not specify the exact final release dates for Python 3.8.0 or Python 3.10.0.",
+    "citations": [],
+    "retrieved_peps": [
+     398,
+     569,
+     598,
+     619
+    ],
+    "refused": true,
+    "latency": 4.228565500001423,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q25",
+    "type": "multi",
+    "question": "Which typing proposal enables forwarding a callable's parameter types, and which enables parameterizing generics over arbitrary numbers of types?",
+    "gold": "ParamSpec (PEP 612) forwards callable parameter types; TypeVarTuple (PEP 646) gives variadic generics.",
+    "gold_peps": [
+     612,
+     646
+    ],
+    "answer": "PEP 612 enables forwarding a callable's parameter types with `ParamSpec` [PEP 612]. PEP 646 introduces `TypeVarTuple`, enabling parameterizing generics over an arbitrary number of types [PEP 646].",
+    "citations": [
+     612,
+     646
+    ],
+    "retrieved_peps": [
+     585,
+     612,
+     646,
+     827
+    ],
+    "refused": false,
+    "latency": 4.1260813000262715,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q26",
+    "type": "unanswerable",
+    "question": "How does mypy's dmypy daemon cache incremental type-checking results?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     544,
+     586,
+     589,
+     591,
+     681
+    ],
+    "refused": true,
+    "latency": 2.8188289999961853,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q27",
+    "type": "unanswerable",
+    "question": "How does uvloop's libuv integration schedule callbacks compared with the default asyncio loop?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     521,
+     554,
+     789,
+     852,
+     3156
+    ],
+    "refused": true,
+    "latency": 3.420146400050726,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q28",
+    "type": "multi",
+    "question": "What does an object being immortal mean in the immortal-objects proposal, and how does the free-threading proposal mark objects as immortal?",
+    "gold": "Its refcount never reaches 0 so it is never cleaned up; the free-threading design sets the local reference count field to UINT32_MAX.",
+    "gold_peps": [
+     683,
+     703
+    ],
+    "answer": "An object being immortal means it will not be garbage collected during the application's lifetime [PEP 683]. In the context of the free-threading proposal, objects can be marked as immortal internally without changing public API or behavior [PEP 683]. This marking is done to avoid extra overhead in incref/decref operations for certain objects like `sys.modules` [PEP 683].",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     683
+    ],
+    "refused": false,
+    "latency": 4.484760799969081,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q29",
+    "type": "factual",
+    "question": "In a generator expression, which part is evaluated immediately and which is delayed?",
+    "gold": "The first (outermost) for-expression is evaluated immediately; the remaining expressions are evaluated when the generator is executed.",
+    "gold_peps": [
+     289
+    ],
+    "answer": "The first (outermost) for-expression in a generator expression is evaluated immediately, while the remaining expressions are evaluated when the generator is executed [PEP 289].",
+    "citations": [
+     289
+    ],
+    "retrieved_peps": [
+     289,
+     325,
+     709,
+     798,
+     3142
+    ],
+    "refused": false,
+    "latency": 3.914551299996674,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q30",
+    "type": "factual",
+    "question": "Can I put a backslash inside the braces of an f-string expression to escape a quote?",
+    "gold": "No. Backslashes may not appear inside the expression portions of f-strings; use a different quote type inside the expression instead.",
+    "gold_peps": [
+     498
+    ],
+    "answer": "No, backslashes may not appear anywhere within expressions in f-strings [PEP 498].",
+    "citations": [
+     498
+    ],
+    "retrieved_peps": [
+     498,
+     701
+    ],
+    "refused": false,
+    "latency": 4.1838402999565005,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q31",
+    "type": "named",
+    "question": "Why does PEP 3105 say print should not be a statement?",
+    "gold": "Print is the only application-level functionality with a dedicated statement, and syntax should be a last resort for what cannot be done without compiler help.",
+    "gold_peps": [
+     3105
+    ],
+    "answer": "PEP 3105 suggests making `print` a function to improve consistency with other functions and to allow for more flexibility in its usage [PEP 3105].",
+    "citations": [
+     3105
+    ],
+    "retrieved_peps": [
+     403,
+     3100,
+     3105
+    ],
+    "refused": false,
+    "latency": 3.599260699993465,
+    "verdict": "partial",
+    "reason": "It mentions making print a function but misses the key points about application-level functionality and syntax."
+   },
+   {
+    "id": "q32",
+    "type": "named",
+    "question": "According to PEP 343, which earlier PEP was the original with-statement proposal?",
+    "gold": "PEP 310, Reliable Acquisition/Release Pairs.",
+    "gold_peps": [
+     343
+    ],
+    "answer": "According to PEP 343, the original with-statement proposal was :pep:`340` [PEP 346].",
+    "citations": [
+     346
+    ],
+    "retrieved_peps": [
+     346,
+     402,
+     471,
+     487,
+     683
+    ],
+    "refused": false,
+    "latency": 3.288411499990616,
+    "verdict": "incorrect",
+    "reason": "PEP 340, not PEP 346, was the original proposal."
+   },
+   {
+    "id": "q33",
+    "type": "unanswerable",
+    "question": "What retry backoff does Celery apply by default to failed tasks?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     346,
+     556,
+     577,
+     654,
+     852
+    ],
+    "refused": true,
+    "latency": 3.4494610999827273,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q34",
+    "type": "named",
+    "question": "What file encoding must tools assume for a readme file path according to PEP 621?",
+    "gold": "UTF-8.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources discuss Python source code encodings, dependency management, and file formats but do not mention any specific requirements for readme file paths or their encodings.",
+    "citations": [],
+    "retrieved_peps": [
+     263,
+     665,
+     751
+    ],
+    "refused": true,
+    "latency": 3.7605497000040486,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q35",
+    "type": "factual",
+    "question": "What happens if the name string passed to a parameter specification variable differs from the variable it is assigned to?",
+    "gold": "It is rejected: the name must match, so ParamSpec(\"WrongName\") assigned to P is invalid.",
+    "gold_peps": [
+     612
+    ],
+    "answer": "If the name string passed to a parameter specification variable differs from the variable it is assigned to, the declaration will be rejected [PEP 612].",
+    "citations": [
+     612
+    ],
+    "retrieved_peps": [
+     224,
+     227,
+     362,
+     612,
+     727
+    ],
+    "refused": false,
+    "latency": 3.5880236999946646,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q36",
+    "type": "factual",
+    "question": "What problems led to redesigning native coroutines as their own type distinct from generators after the first 3.5 beta?",
+    "gold": "Problems integrating native coroutines into the Tornado web server led to making coroutines a completely distinct type from generators.",
+    "gold_peps": [
+     492
+    ],
+    "answer": "This proposal addresses several issues with using generators for coroutines, such as ambiguity between coroutines and regular generators [PEP 492, section: Rationale and Goals]. The presence of `yield` or `yield from` statements in a function's body can make it unclear whether the function is intended to be a coroutine or a generator [PEP 492, section: Rationale and Goals]. Additionally, support for asynchronous calls was limited to expressions where `yield` is allowed syntactically, which restricted the usefulness of certain syntactic features like `with` and `for` statements [PEP 492, section: Rationale and Goals].",
+    "citations": [
+     492
+    ],
+    "retrieved_peps": [
+     492
+    ],
+    "refused": false,
+    "latency": 7.117064099991694,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately captures the main issue of ambiguity between coroutines and generators, which led to redesigning native coroutines as a distinct type."
+   },
+   {
+    "id": "q37",
+    "type": "multi",
+    "question": "Which rejected generator-based coroutine proposal came before native async/await, and what is the stated aim of async/await?",
+    "gold": "Cofunctions (PEP 3152); async/await aims to make explicitly asynchronous, concurrent code easier and more Pythonic.",
+    "gold_peps": [
+     492,
+     3152
+    ],
+    "answer": "I don't know based on the PEPs. The sources provided do not mention any rejected generator-based coroutine proposals or the specific aims of the async/await syntax.",
+    "citations": [],
+    "retrieved_peps": [
+     492,
+     525,
+     530
+    ],
+    "refused": true,
+    "latency": 3.85290920000989,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q38",
+    "type": "multi",
+    "question": "The original function annotations proposal left their meaning open; which later proposal gave them a standard meaning and why?",
+    "gold": "The annotations proposal left semantics to third-party libraries; the type hints proposal standardized a vocabulary for static type analysis since community usage had grown.",
+    "gold_peps": [
+     484,
+     3107
+    ],
+    "answer": "The original function annotations proposal (:pep:`3107`) left their meaning open. :pep:`484` introduced a standard meaning to annotations, specifically type hints [PEP 484]. This was done to enable better static analysis and tooling support for type checking in Python code [PEP 484].",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     563,
+     649,
+     3107
+    ],
+    "refused": false,
+    "latency": 4.488944800046738,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q39",
+    "type": "named",
+    "question": "In PEP 703's biased reference counting, what kind of instructions does the owning thread use to modify the local reference count?",
+    "gold": "Non-atomic instructions.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "In PEP 703's biased reference counting, the owning thread uses non-atomic instructions to modify the local reference count. [PEP 703]",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703,
+     805
+    ],
+    "refused": false,
+    "latency": 3.7726439999532886,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q40",
+    "type": "multi",
+    "question": "Which PEP defines the key naming a build backend object and which defines the table requiring a list of build dependencies?",
+    "gold": "PEP 517 defines build-backend; PEP 518 defines the build-system table whose mandatory key is requires.",
+    "gold_peps": [
+     517,
+     518
+    ],
+    "answer": "PEP 725 defines the key naming a build backend object, specifically mentioning \"backend-path\" under the \"[build-system]\" table [PEP 517]. PEP 518 defines the table requiring a list of build dependencies, introducing the \"requires\" key under the same \"[build-system]\" table [PEP 518].",
+    "citations": [
+     517,
+     518
+    ],
+    "retrieved_peps": [
+     517,
+     518,
+     725
+    ],
+    "refused": false,
+    "latency": 7.350425400014501,
+    "verdict": "incorrect",
+    "reason": "PEP numbers are swapped in the candidate answer."
+   },
+   {
+    "id": "q41",
+    "type": "factual",
+    "question": "Why can't a variadic type variable be used bare in an annotation instead of with the star operator?",
+    "gold": "Variadic type variables must always be unpacked, to avoid confusion over packed versus unpacked forms and to make visually clear that it is not a normal type variable.",
+    "gold_peps": [
+     646
+    ],
+    "answer": "Type variable tuples must always be unpacked, meaning they must be prefixed by the star operator (*). This is done to avoid confusion and improve readability [PEP 646]. Using a variadic type variable bare in an annotation would lead to ambiguity and potential errors [PEP 646].",
+    "citations": [
+     646
+    ],
+    "retrieved_peps": [
+     526,
+     646
+    ],
+    "refused": false,
+    "latency": 8.24644299998181,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q42",
+    "type": "unanswerable",
+    "question": "How does the Python unless statement differ from an if not condition?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs. The sources provided do not contain information about an \"unless\" statement or how it differs from an \"if not\" condition.",
+    "citations": [],
+    "retrieved_peps": [
+     8,
+     308,
+     548,
+     572,
+     823
+    ],
+    "refused": true,
+    "latency": 6.61082450003596,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q43",
+    "type": "factual",
+    "question": "When a delegating generator forwards a sent value and the sub-iterator raises StopIteration, what happens?",
+    "gold": "The delegating generator is resumed; any other exception is propagated to it.",
+    "gold_peps": [
+     380
+    ],
+    "answer": "When a delegating generator forwards a sent value and the sub-iterator raises StopIteration, the delegating generator resumes [PEP 380].",
+    "citations": [
+     380
+    ],
+    "retrieved_peps": [
+     380,
+     479
+    ],
+    "refused": false,
+    "latency": 3.745029199984856,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q44",
+    "type": "factual",
+    "question": "Why does the number-formatting proposal argue the locale module is a poor fit for thousands separators in multi-threaded servers?",
+    "gold": "The locale setting is global, so it is not suitable for threaded apps serving requests in multiple locales.",
+    "gold_peps": [
+     378
+    ],
+    "answer": "The locale module presents challenges for multi-threaded applications because it uses global settings [PEP 378]. This makes it unsuitable for serving requests in multiple locales simultaneously [PEP 378].",
+    "citations": [
+     378
+    ],
+    "retrieved_peps": [
+     331,
+     378,
+     611
+    ],
+    "refused": false,
+    "latency": 3.9512421000399627,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that the locale module's global settings make it unsuitable for multi-threaded applications serving requests in multiple locales."
+   },
+   {
+    "id": "q45",
+    "type": "factual",
+    "question": "Why does the Python style guide discourage assigning a lambda directly to a name?",
+    "gold": "Using a def gives the function the real name instead of '<lambda>', which helps tracebacks, and the assignment removes the only advantage of lambda, namely embedding in a larger expression.",
+    "gold_peps": [
+     8
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources discuss nested scopes, decorators, and generator expressions but do not explicitly address why the Python style guide discourages assigning a lambda directly to a name.",
+    "citations": [],
+    "retrieved_peps": [
+     227,
+     289,
+     403,
+     3150
+    ],
+    "refused": true,
+    "latency": 3.8804295000154525,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q46",
+    "type": "factual",
+    "question": "For a dataclass field, what is the zero-argument callable option mainly useful for?",
+    "gold": "It is the default_factory option, which can be used to specify fields with mutable default values.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources do not specify the main use case for a zero-argument callable option in a dataclass field.",
+    "citations": [],
+    "retrieved_peps": [
+     557,
+     712,
+     827
+    ],
+    "refused": true,
+    "latency": 3.8932963000261225,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q47",
+    "type": "factual",
+    "question": "Which other programming language was cited as having a syntax similar to the pipe operator for combining types?",
+    "gold": "Scala.",
+    "gold_peps": [
+     604
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     554,
+     584,
+     677
+    ],
+    "refused": true,
+    "latency": 3.2232260000309907,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q48",
+    "type": "named",
+    "question": "What is the default value of the frozen parameter of the dataclass decorator in PEP 557?",
+    "gold": "False.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "The default value of the frozen parameter of the dataclass decorator in PEP 557 is False [PEP 681].",
+    "citations": [
+     681
+    ],
+    "retrieved_peps": [
+     416,
+     681,
+     839,
+     841
+    ],
+    "refused": false,
+    "latency": 3.513152399973478,
+    "verdict": "correct",
+    "reason": "The candidate answer provides the correct default value and references PEP 681, which is more up-to-date than PEP 557."
+   },
+   {
+    "id": "q49",
+    "type": "unanswerable",
+    "question": "What is the exact binary wire format of pickle protocol 6?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     307,
+     3154
+    ],
+    "refused": true,
+    "latency": 3.129701900004875,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q50",
+    "type": "named",
+    "question": "How does PEP 484 say a type hint can refer to a name that has not been defined yet?",
+    "gold": "By expressing it as a string literal, to be resolved later.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "PEP 484 does not specify how a type hint can refer to a name that has not been defined yet. I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     482,
+     544,
+     561,
+     563
+    ],
+    "refused": true,
+    "latency": 3.5072355000302196,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q51",
+    "type": "factual",
+    "question": "Can a structural pattern matching statement have several catch-all cases, and where must it go?",
+    "gold": "At most one irrefutable case block is allowed, and it must be last.",
+    "gold_peps": [
+     634
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources do not discuss multiple catch-all cases in structural pattern matching statements. [PEP 622] mentions using `_` as a final 'catch-all' pattern but does not specify if there can be more than one such case or their placement.",
+    "citations": [
+     622
+    ],
+    "retrieved_peps": [
+     622,
+     636,
+     642,
+     653
+    ],
+    "refused": true,
+    "latency": 4.653598200005945,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q52",
+    "type": "factual",
+    "question": "If a parameter has a default of None but is annotated with a non-optional type, should type checkers silently treat it as Optional?",
+    "gold": "No. An earlier version allowed that implicit Optional, but it is no longer recommended; type checkers should move towards requiring the optional type to be explicit.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "According to PEP 484 [PEP 484], type checkers should no longer assume an optional type when the default value is `None` and instead require the optional type to be made explicit. Therefore, if a parameter has a default of `None` but is annotated with a non-optional type, type checkers should not silently treat it as `Optional`.",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     655,
+     823
+    ],
+    "refused": false,
+    "latency": 4.804856000002474,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q53",
+    "type": "named",
+    "question": "Does PEP 3333 invalidate servers or applications that were compliant under Python 2.x?",
+    "gold": "No; no changes were made that invalidate previously-compliant servers or applications under Python 2.x.",
+    "gold_peps": [
+     3333
+    ],
+    "answer": "No changes were made that invalidate previously-compliant servers or applications under Python 2.x. If your 2.x application or server is compliant to PEP 333, it is also compliant with this PEP [PEP 3333].",
+    "citations": [
+     3333
+    ],
+    "retrieved_peps": [
+     333,
+     493,
+     546,
+     3333
+    ],
+    "refused": false,
+    "latency": 3.8178757999558,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q54",
+    "type": "unanswerable",
+    "question": "What is the default worker timeout in seconds for gunicorn?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     418,
+     447
+    ],
+    "refused": true,
+    "latency": 5.257202100008726,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q55",
+    "type": "factual",
+    "question": "How many guiding aphorisms did Tim Peters have in mind for Python's design, and how many were actually written down?",
+    "gold": "There were 20 aphorisms, of which only 19 were written down.",
+    "gold_peps": [
+     20
+    ],
+    "answer": "Tim Peters had 20 guiding aphorisms in mind for Python's design, but only 19 were actually written down [PEP 20].",
+    "citations": [
+     20
+    ],
+    "retrieved_peps": [
+     13,
+     20,
+     223,
+     577,
+     832
+    ],
+    "refused": false,
+    "latency": 3.372202800004743,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q56",
+    "type": "factual",
+    "question": "In the no-GIL CPython design, which mechanism contributes most to the extra execution overhead?",
+    "gold": "Biased reference counting is the largest contributor, followed by per-object locking.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "According to [PEP 703], the largest contribution to execution overhead in programs that use multiple threads is biased reference counting followed by per-object locking.",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703,
+     3146
+    ],
+    "refused": false,
+    "latency": 3.5272466000169516,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q57",
+    "type": "named",
+    "question": "Under the acceptance conditions of PEP 683, were types lacking the reset-in-dealloc fix immortalized in CPython?",
+    "gold": "No; they were not immortalized in CPython's code.",
+    "gold_peps": [
+     683
+    ],
+    "answer": "No, types lacking the reset-in-dealloc fix were not immortalized in CPython according to the acceptance conditions of PEP 683 [PEP 683].",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     341,
+     560,
+     579,
+     683,
+     684
+    ],
+    "refused": false,
+    "latency": 4.941394599969499,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q58",
+    "type": "factual",
+    "question": "What type must the collected keyword arguments of a function be exposed as, to preserve their call order?",
+    "gold": "An ordered mapping.",
+    "gold_peps": [
+     468
+    ],
+    "answer": "The collected keyword arguments of a function must be exposed as an ordered mapping [PEP 468].",
+    "citations": [
+     468
+    ],
+    "retrieved_peps": [
+     468
+    ],
+    "refused": false,
+    "latency": 3.3285907001118176,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q59",
+    "type": "factual",
+    "question": "What should a build frontend do if a project's pyproject.toml has no build backend specified?",
+    "gold": "It should revert to legacy behaviour and run setup.py, directly or via the legacy setuptools backend.",
+    "gold_peps": [
+     517
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     517,
+     722
+    ],
+    "refused": true,
+    "latency": 3.2626656999927945,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q60",
+    "type": "factual",
+    "question": "Does the language itself give any meaning to function annotations?",
+    "gold": "No. Annotations only take on meaning when interpreted by third-party libraries.",
+    "gold_peps": [
+     3107
+    ],
+    "answer": "No, according to [PEP 3107], Python does not attach any particular meaning or significance to annotations by itself.",
+    "citations": [
+     3107
+    ],
+    "retrieved_peps": [
+     563,
+     677,
+     3107
+    ],
+    "refused": false,
+    "latency": 3.489216000016313,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   }
+  ]
+ },
+ "hybrid_route": {
+  "summary": {
+   "accuracy": 0.827,
+   "accuracy[factual]": 0.85,
+   "accuracy[named]": 0.917,
+   "accuracy[multi]": 0.65,
+   "refusal_accuracy[unanswerable]": 1.0,
+   "false_refusal_rate": 0.077,
+   "citation_precision": 0.938,
+   "hallucinated_citation_rate": 0.017,
+   "uncited_answer_rate": 0.0,
+   "latency_p50_s": 5.56
+  },
+  "rows": [
+   {
+    "id": "q01",
+    "type": "factual",
+    "question": "How long are the deprecated typing aliases for builtin collections guaranteed to stay before they could be removed?",
+    "gold": "Removal will occur no sooner than Python 3.9's end of life, scheduled for October 2025.",
+    "gold_peps": [
+     585
+    ],
+    "answer": "The deprecated typing aliases for built-in collections are scheduled to be removed in Python 3.9, as stated in [PEP 585].",
+    "citations": [
+     585
+    ],
+    "retrieved_peps": [
+     393,
+     585,
+     606,
+     702,
+     2026
+    ],
+    "refused": false,
+    "latency": 6.70775090000825,
+    "verdict": "partial",
+    "reason": "It mentions the removal version but lacks the specific end of life date."
+   },
+   {
+    "id": "q02",
+    "type": "multi",
+    "question": "How did the new generics syntax change declaring a type variable compared with the original TypeVar factory approach?",
+    "gold": "Originally TypeVar was a factory called with a redundant quoted name; the new syntax removes the need for that redundant name.",
+    "gold_peps": [
+     484,
+     695
+    ],
+    "answer": "The new generics syntax allows for simpler declaration of type variables. Instead of using `TypeVar` and specifying it as a separate import, you can now include the type parameter directly in the class or function definition. For example, before PEP 695, you would define `_T_co = TypeVar(\"_T_co\", covariant=True, bound=str)`, but with the new syntax, you can declare `class ClassA[T: str]:` [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     484,
+     646,
+     695
+    ],
+    "refused": false,
+    "latency": 15.073125800001435,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q03",
+    "type": "factual",
+    "question": "Why was JSON rejected as the file format for declaring build requirements?",
+    "gold": "Its syntax is verbose and hard for humans to edit, and it does not allow comments.",
+    "gold_peps": [
+     518
+    ],
+    "answer": "The JSON format was initially considered but quickly rejected because it is more verbose than necessary and does not allow for comments, making it less friendly for human editing compared to other formats [PEP 518].",
+    "citations": [
+     518
+    ],
+    "retrieved_peps": [
+     518,
+     739
+    ],
+    "refused": false,
+    "latency": 4.849858300003689,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q04",
+    "type": "named",
+    "question": "Until roughly when does PEP 745 say security updates for Python 3.14 are expected?",
+    "gold": "Until approximately October 2030, five years after 3.14.0 final (source-only).",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Security updates for Python 3.14 are expected until approximately October 2030 [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     719,
+     745
+    ],
+    "refused": false,
+    "latency": 5.564146400021855,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q05",
+    "type": "multi",
+    "question": "What did generator functions originally forbid on return statements, and how did yield from later change what return does in a generator?",
+    "gold": "The original generators proposal disallowed an expression on return; the yield from proposal makes return expr raise StopIteration(expr).",
+    "gold_peps": [
+     255,
+     380
+    ],
+    "answer": "Generator functions originally forbade expression lists on return statements [PEP 255]. Later, with the introduction of `yield from` in asynchronous generators via PEP 828, the behavior of `return` changed so that `return expression` is roughly equivalent to `raise StopAsyncIteration(expression)` [PEP 828].",
+    "citations": [
+     255,
+     828
+    ],
+    "retrieved_peps": [
+     255,
+     342,
+     479,
+     828
+    ],
+    "refused": false,
+    "latency": 6.0345399000216275,
+    "verdict": "partial",
+    "reason": "The answer correctly mentions the prohibition of expressions on return in original generators but incorrectly attributes this to PEP 255 instead of the original generators proposal. It also inaccurately states that PEP 828 introduced `yield from` and its behavior, when it was actually part of PEP 380."
+   },
+   {
+    "id": "q06",
+    "type": "unanswerable",
+    "question": "How does PyTorch's autograd engine record operations to build the backward graph?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     432,
+     703,
+     751,
+     817
+    ],
+    "refused": true,
+    "latency": 3.8638553000055254,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q07",
+    "type": "named",
+    "question": "According to PEP 8, what is the maximum line length for docstrings and comments?",
+    "gold": "72 characters (79 for other lines).",
+    "gold_peps": [
+     8
+    ],
+    "answer": "According to PEP 8, the maximum line length for docstrings and comments should be limited to 72 characters [PEP 8].",
+    "citations": [
+     8
+    ],
+    "retrieved_peps": [
+     8,
+     257
+    ],
+    "refused": false,
+    "latency": 4.483431300031953,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately states the maximum line length for docstrings and comments according to PEP 8."
+   },
+   {
+    "id": "q08",
+    "type": "factual",
+    "question": "How does the scope created by the new generic-class syntax differ from an ordinary function or class scope?",
+    "gold": "It acts like a temporary overlay on the containing scope, containing only the new type parameters while other names resolve in the enclosing scope.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The new `def695` scopes, used for type parameters in generic classes and functions, behave like function scopes but with some differences. Specifically, they can access names defined in an enclosing class scope, unlike regular functions [PEP 695]. Additionally, certain constructs such as `yield`, `await`, and the walrus operator are disallowed directly within a `def695` scope [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     403,
+     695
+    ],
+    "refused": false,
+    "latency": 7.26456209999742,
+    "verdict": "partial",
+    "reason": "It covers some aspects but misses the key point about acting as a temporary overlay."
+   },
+   {
+    "id": "q09",
+    "type": "factual",
+    "question": "Why was the walrus operator not allowed unparenthesized as a bare expression statement?",
+    "gold": "To keep a single clear choice between an assignment statement and an assignment expression: there is no syntactic position where both are valid.",
+    "gold_peps": [
+     572
+    ],
+    "answer": "Unparenthesized assignment expressions are prohibited at the top level of an expression statement to simplify the choice for the user between an assignment statement and an assignment expression, avoiding two visually similar ways of saying the same thing [PEP 572].",
+    "citations": [
+     572
+    ],
+    "retrieved_peps": [
+     572,
+     622,
+     635,
+     798
+    ],
+    "refused": false,
+    "latency": 4.9201602000393905,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q10",
+    "type": "factual",
+    "question": "What benefits does a fixed annual release calendar give core developers regarding the timing of the beta phase?",
+    "gold": "Final releases always land in October, after the core sprint, and the beta phase starts in late May, after the PyCon US sprints.",
+    "gold_peps": [
+     602
+    ],
+    "answer": "The fixed annual release calendar, starting the beta phase in late May after PyCon US sprints, helps core developers plan their involvement, as it provides a predictable timeline [PEP 602].",
+    "citations": [
+     602
+    ],
+    "retrieved_peps": [
+     602,
+     607,
+     2026
+    ],
+    "refused": false,
+    "latency": 4.556760500010569,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q11",
+    "type": "factual",
+    "question": "Is it legal to write a lone starred target on the left side of an assignment such as star-a equals a range?",
+    "gold": "No; using the starred expression as a lone assignment target is an error.",
+    "gold_peps": [
+     3132
+    ],
+    "answer": "It is not legal to use a starred expression as a lone assignment target, as in `*a = range(5)` [PEP 3132].",
+    "citations": [
+     3132
+    ],
+    "retrieved_peps": [
+     572,
+     577,
+     3132
+    ],
+    "refused": false,
+    "latency": 4.6997206000378355,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q12",
+    "type": "factual",
+    "question": "Why must project metadata fields that a build backend fills in later be explicitly declared as dynamic in pyproject metadata?",
+    "gold": "So that missing metadata is unambiguous: otherwise you could not tell whether it was left out on purpose or will be supplied later by the backend.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "To ensure clarity, if a field's value will be provided by the build backend later, it must be explicitly declared as dynamic in the pyproject metadata [PEP 621]. This practice disambiguates whether the absence of metadata is intentional or if it will be supplied dynamically [PEP 808].",
+    "citations": [
+     621,
+     808
+    ],
+    "retrieved_peps": [
+     621,
+     808
+    ],
+    "refused": false,
+    "latency": 5.962824299989734,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q13",
+    "type": "factual",
+    "question": "Who gave the @ decorator syntax its nickname, and why?",
+    "gold": "Barry Warsaw called it the 'pie-decorator' syntax, after the Pie-thon Parrot shootout of the time and because the @ looks a little like a pie.",
+    "gold_peps": [
+     318
+    ],
+    "answer": "Barry Warsaw named this the 'pie-decorator' syntax, in honor of the Pie-thon Parrot shootout which occurred around the same time as the decorator syntax [PEP 318].",
+    "citations": [
+     318
+    ],
+    "retrieved_peps": [
+     318
+    ],
+    "refused": false,
+    "latency": 5.2738793000462465,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q14",
+    "type": "factual",
+    "question": "If a Python 3 source file carries an explicit encoding declaration, does the default source encoding still apply?",
+    "gold": "No; an explicit encoding declaration takes precedence over the default.",
+    "gold_peps": [
+     3120
+    ],
+    "answer": "No, if a Python 3 source file carries an explicit encoding declaration, the default source encoding (which is UTF-8 according to PEP 3120) does not apply [PEP 572]. The explicit declaration takes precedence over the default.",
+    "citations": [
+     572
+    ],
+    "retrieved_peps": [
+     263,
+     3120
+    ],
+    "refused": false,
+    "latency": 10.108884699991904,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that an explicit encoding declaration takes precedence over the default."
+   },
+   {
+    "id": "q15",
+    "type": "unanswerable",
+    "question": "How does Kafka consumer group rebalancing interact with asyncio tasks in Python?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     789,
+     3156
+    ],
+    "refused": true,
+    "latency": 4.05945729999803,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q16",
+    "type": "multi",
+    "question": "Python 3 changed the default source file encoding from what to what, and which normalization form are non-ASCII identifiers converted to?",
+    "gold": "From ASCII to UTF-8; identifiers are normalized to NFKC.",
+    "gold_peps": [
+     3120,
+     3131
+    ],
+    "answer": "Python 3 changed the default source file encoding from Latin-1 to UTF-8 [PEP 3120]. Non-ASCII identifiers are not explicitly mentioned as being normalized in a specific form in these PEPs, but the discussion around normalization forms like NFC or NFKC is present in other PEPs related to Unicode handling [PEP 3131] [PEP 3120].",
+    "citations": [
+     3120,
+     3131
+    ],
+    "retrieved_peps": [
+     263,
+     3120,
+     3131
+    ],
+    "refused": false,
+    "latency": 7.322786400036421,
+    "verdict": "partial",
+    "reason": "Correctly identifies the change in default encoding but incorrectly states the normalization form for non-ASCII identifiers."
+   },
+   {
+    "id": "q17",
+    "type": "factual",
+    "question": "What identifier policy applies to the standard library after non-ASCII identifiers were allowed?",
+    "gold": "Standard library identifiers must be ASCII-only and should use English words wherever feasible.",
+    "gold_peps": [
+     3131
+    ],
+    "answer": "All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible. [PEP 3131]",
+    "citations": [
+     3131
+    ],
+    "retrieved_peps": [
+     3131
+    ],
+    "refused": false,
+    "latency": 4.8179613999673165,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q18",
+    "type": "named",
+    "question": "In PEP 695, when is the value of a type alias created with the type statement evaluated?",
+    "gold": "Lazily.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The value of a type alias created with the type statement is evaluated lazily [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     695,
+     749
+    ],
+    "refused": false,
+    "latency": 4.33066969999345,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q19",
+    "type": "factual",
+    "question": "Does the mapping a metaclass uses to record class-body definitions have to be a full ordered dict?",
+    "gold": "No; a simple list of (key, value) pairs appended on each insertion is enough.",
+    "gold_peps": [
+     3115
+    ],
+    "answer": "No, the mapping does not have to be a full ordered dict [PEP 520]. It can support a limited set of dictionary operations and may be a subclass of dict or a wrapper around it [PEP 3115].",
+    "citations": [
+     520,
+     3115
+    ],
+    "retrieved_peps": [
+     372,
+     520,
+     3115
+    ],
+    "refused": false,
+    "latency": 5.803660999983549,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys that the mapping does not have to be a full ordered dict and provides additional relevant information."
+   },
+   {
+    "id": "q20",
+    "type": "multi",
+    "question": "Which proposal introduced generators with the yield statement and which introduced generator expressions, and what motivated the latter?",
+    "gold": "PEP 255 introduced generators; PEP 289 introduced generator expressions because many list comprehension uses do not need a full list in memory.",
+    "gold_peps": [
+     255,
+     289
+    ],
+    "answer": "Generators with the `yield` statement were introduced by PEP 255 [PEP 255]. Generator expressions were not directly mentioned in the provided sources. However, they are implied to have been introduced later as part of the same framework, but no specific PEP number or motivation for generator expressions was cited in these sources. I don't know based on the PEPs which proposal specifically introduced generator expressions and what motivated them.",
+    "citations": [
+     255
+    ],
+    "retrieved_peps": [
+     255,
+     325,
+     342,
+     828
+    ],
+    "refused": true,
+    "latency": 7.614643000008073,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q21",
+    "type": "factual",
+    "question": "For how long is a given Python 3.14 line expected to get bugfix releases, and at what cadence?",
+    "gold": "About every two months for approximately 24 months.",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Python 3.14 is expected to receive bugfix updates approximately every two months for about 24 months [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     6,
+     602,
+     719,
+     745
+    ],
+    "refused": false,
+    "latency": 4.6380818000179715,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q22",
+    "type": "named",
+    "question": "In PEP 544, what is a class called if it includes a protocol in its MRO?",
+    "gold": "An explicit subclass of the protocol.",
+    "gold_peps": [
+     544
+    ],
+    "answer": "A class that includes a protocol in its MRO is called an explicit subclass of the protocol [PEP 544].",
+    "citations": [
+     544
+    ],
+    "retrieved_peps": [
+     544,
+     837
+    ],
+    "refused": false,
+    "latency": 4.588886000041384,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q23",
+    "type": "factual",
+    "question": "Why can't a yield be placed inside a try block that has a finally clause in generator functions?",
+    "gold": "There is no guarantee the generator will ever be resumed, hence no guarantee the finally block will run.",
+    "gold_peps": [
+     255
+    ],
+    "answer": "A ``yield`` statement is not allowed in the ``try`` clause of a ``try/finally`` construct because there's no guarantee the generator will ever be resumed, hence no guarantee that the finally block will get executed [PEP 255]. This would violate the purpose of the ``finally`` block [PEP 325].",
+    "citations": [
+     255,
+     325
+    ],
+    "retrieved_peps": [
+     255,
+     325,
+     342
+    ],
+    "refused": false,
+    "latency": 6.446847999992315,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q24",
+    "type": "multi",
+    "question": "What were the scheduled final release dates of Python 3.8.0 and Python 3.10.0?",
+    "gold": "3.8.0 final: 2019-10-14; 3.10.0 final: 2021-10-04.",
+    "gold_peps": [
+     569,
+     619
+    ],
+    "answer": "The scheduled final release date for Python 3.8.0 was Monday, 2021-10-04 [PEP 569]. For Python 3.10.0, the final release date was Monday, 2021-10-04 [PEP 619].",
+    "citations": [
+     569,
+     619
+    ],
+    "retrieved_peps": [
+     478,
+     569,
+     598,
+     619
+    ],
+    "refused": false,
+    "latency": 6.148418900032993,
+    "verdict": "incorrect",
+    "reason": "Dates are swapped for Python 3.8.0 and 3.10.0."
+   },
+   {
+    "id": "q25",
+    "type": "multi",
+    "question": "Which typing proposal enables forwarding a callable's parameter types, and which enables parameterizing generics over arbitrary numbers of types?",
+    "gold": "ParamSpec (PEP 612) forwards callable parameter types; TypeVarTuple (PEP 646) gives variadic generics.",
+    "gold_peps": [
+     612,
+     646
+    ],
+    "answer": "The proposal that enables forwarding a callable's parameter types is PEP 612 [PEP 612]. It introduces `typing.ParamSpec` and `typing.Concatenate`. The one enabling parameterization over an arbitrary number of types is PEP 646 [PEP 646], which introduces `TypeVarTuple`.",
+    "citations": [
+     612,
+     646
+    ],
+    "retrieved_peps": [
+     612,
+     646,
+     677,
+     827
+    ],
+    "refused": false,
+    "latency": 9.442081100016367,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately identifies PEP 612 for forwarding callable parameter types and PEP 646 for variadic generics."
+   },
+   {
+    "id": "q26",
+    "type": "unanswerable",
+    "question": "How does mypy's dmypy daemon cache incremental type-checking results?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     509,
+     589,
+     692,
+     728,
+     800
+    ],
+    "refused": true,
+    "latency": 3.5437686999794096,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q27",
+    "type": "unanswerable",
+    "question": "How does uvloop's libuv integration schedule callbacks compared with the default asyncio loop?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     3156
+    ],
+    "refused": true,
+    "latency": 3.657133199973032,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q28",
+    "type": "multi",
+    "question": "What does an object being immortal mean in the immortal-objects proposal, and how does the free-threading proposal mark objects as immortal?",
+    "gold": "Its refcount never reaches 0 so it is never cleaned up; the free-threading design sets the local reference count field to UINT32_MAX.",
+    "gold_peps": [
+     683,
+     703
+    ],
+    "answer": "An object being immortal means it will not be garbage collected under normal circumstances [PEP 683]. In the context of the free-threading proposal, all objects are marked as immortal at the end of runtime initialization to avoid extra costs in incref/decref operations [PEP 683].",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     683
+    ],
+    "refused": false,
+    "latency": 5.162998799991328,
+    "verdict": "partial",
+    "reason": "The candidate answer correctly identifies immortality in terms of refcount but incorrectly states that all objects are marked as immortal in the free-threading proposal."
+   },
+   {
+    "id": "q29",
+    "type": "factual",
+    "question": "In a generator expression, which part is evaluated immediately and which is delayed?",
+    "gold": "The first (outermost) for-expression is evaluated immediately; the remaining expressions are evaluated when the generator is executed.",
+    "gold_peps": [
+     289
+    ],
+    "answer": "In a generator expression, the outermost for-expression is evaluated immediately, while the other expressions are deferred until the generator is run [PEP 289].",
+    "citations": [
+     289
+    ],
+    "retrieved_peps": [
+     289,
+     750,
+     798,
+     3142
+    ],
+    "refused": false,
+    "latency": 7.298048900032882,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q30",
+    "type": "factual",
+    "question": "Can I put a backslash inside the braces of an f-string expression to escape a quote?",
+    "gold": "No. Backslashes may not appear inside the expression portions of f-strings; use a different quote type inside the expression instead.",
+    "gold_peps": [
+     498
+    ],
+    "answer": "No, backslashes may not appear anywhere within expressions in f-strings [PEP 498].",
+    "citations": [
+     498
+    ],
+    "retrieved_peps": [
+     498,
+     536,
+     701
+    ],
+    "refused": false,
+    "latency": 4.714751899999101,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q31",
+    "type": "named",
+    "question": "Why does PEP 3105 say print should not be a statement?",
+    "gold": "Print is the only application-level functionality with a dedicated statement, and syntax should be a last resort for what cannot be done without compiler help.",
+    "gold_peps": [
+     3105
+    ],
+    "answer": "PEP 3105 argues that `print` is the only application-level functionality with dedicated syntax, which is unusual in Python where syntax is typically reserved for more fundamental operations [PEP 3105, Rationale]. This special treatment of `print` as a statement is seen as an exception to the general rule of using syntax sparingly [PEP 3105, Rationale].",
+    "citations": [
+     3105
+    ],
+    "retrieved_peps": [
+     214,
+     3105
+    ],
+    "refused": false,
+    "latency": 6.026259700010996,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key points from the reference answer."
+   },
+   {
+    "id": "q32",
+    "type": "named",
+    "question": "According to PEP 343, which earlier PEP was the original with-statement proposal?",
+    "gold": "PEP 310, Reliable Acquisition/Release Pairs.",
+    "gold_peps": [
+     343
+    ],
+    "answer": "The original with-statement proposal was :pep:`310` [PEP 343].",
+    "citations": [
+     343
+    ],
+    "retrieved_peps": [
+     343,
+     346
+    ],
+    "refused": false,
+    "latency": 4.021778599941172,
+    "verdict": "incorrect",
+    "reason": "PEP 310 is mentioned, but not as the original proposal."
+   },
+   {
+    "id": "q33",
+    "type": "unanswerable",
+    "question": "What retry backoff does Celery apply by default to failed tasks?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     475,
+     577
+    ],
+    "refused": true,
+    "latency": 5.554184400010854,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q34",
+    "type": "named",
+    "question": "What file encoding must tools assume for a readme file path according to PEP 621?",
+    "gold": "UTF-8.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "Tools must assume the file's encoding is UTF-8 [PEP 621, Source 1].",
+    "citations": [
+     621
+    ],
+    "retrieved_peps": [
+     519,
+     621
+    ],
+    "refused": false,
+    "latency": 4.115515100012999,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q35",
+    "type": "factual",
+    "question": "What happens if the name string passed to a parameter specification variable differs from the variable it is assigned to?",
+    "gold": "It is rejected: the name must match, so ParamSpec(\"WrongName\") assigned to P is invalid.",
+    "gold_peps": [
+     612
+    ],
+    "answer": "PEP 612 states that a parameter specification variable must be defined with `typing.ParamSpec`, and gives an example where renaming it results in rejection [PEP 612]. Therefore, if the name string passed to a parameter specification variable differs from the variable it is assigned to, it will be rejected.",
+    "citations": [
+     612
+    ],
+    "retrieved_peps": [
+     224,
+     612,
+     695
+    ],
+    "refused": false,
+    "latency": 5.403043299971614,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q36",
+    "type": "factual",
+    "question": "What problems led to redesigning native coroutines as their own type distinct from generators after the first 3.5 beta?",
+    "gold": "Problems integrating native coroutines into the Tornado web server led to making coroutines a completely distinct type from generators.",
+    "gold_peps": [
+     492
+    ],
+    "answer": "Feedback on the initial beta release of Python 3.5 resulted in a redesign of the object model supporting this PEP to more clearly separate native coroutines from generators - rather than being a new kind of generator, native coroutines are now their own completely distinct type (implemented in [17]_). This change was implemented based primarily due to problems encountered attempting to integrate support for native coroutines into the Tornado web server (reported in [18]_). [PEP 492]",
+    "citations": [
+     492
+    ],
+    "retrieved_peps": [
+     492
+    ],
+    "refused": false,
+    "latency": 7.315874699968845,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q37",
+    "type": "multi",
+    "question": "Which rejected generator-based coroutine proposal came before native async/await, and what is the stated aim of async/await?",
+    "gold": "Cofunctions (PEP 3152); async/await aims to make explicitly asynchronous, concurrent code easier and more Pythonic.",
+    "gold_peps": [
+     492,
+     3152
+    ],
+    "answer": "The rejected generator-based coroutine proposal was Cofunctions (:PEP 3152). The aim of async/await, as stated in PEP 492, is to enhance coroutine support in Python [PEP 492].",
+    "citations": [
+     492
+    ],
+    "retrieved_peps": [
+     492
+    ],
+    "refused": false,
+    "latency": 9.022671800048556,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately identifies Cofunctions (PEP 3152) as the rejected proposal and correctly states the aim of async/await from PEP 492."
+   },
+   {
+    "id": "q38",
+    "type": "multi",
+    "question": "The original function annotations proposal left their meaning open; which later proposal gave them a standard meaning and why?",
+    "gold": "The annotations proposal left semantics to third-party libraries; the type hints proposal standardized a vocabulary for static type analysis since community usage had grown.",
+    "gold_peps": [
+     484,
+     3107
+    ],
+    "answer": "The original function annotations proposal :pep:`3107` left their meaning open [PEP 3107]. Later, :pep:`484` introduced a standard meaning for annotations by providing a module with standard definitions and tools [PEP 484]. This was done because there had been enough third-party usage for static type analysis to benefit from a standardized vocabulary and baseline tools within the standard library.",
+    "citations": [
+     484,
+     3107
+    ],
+    "retrieved_peps": [
+     484,
+     563,
+     3107
+    ],
+    "refused": false,
+    "latency": 8.781938100059051,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q39",
+    "type": "named",
+    "question": "In PEP 703's biased reference counting, what kind of instructions does the owning thread use to modify the local reference count?",
+    "gold": "Non-atomic instructions.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "The owning thread uses non-atomic instructions to modify the \"local\" reference count. [PEP 703]",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703
+    ],
+    "refused": false,
+    "latency": 6.588764799991623,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from PEP 703."
+   },
+   {
+    "id": "q40",
+    "type": "multi",
+    "question": "Which PEP defines the key naming a build backend object and which defines the table requiring a list of build dependencies?",
+    "gold": "PEP 517 defines build-backend; PEP 518 defines the build-system table whose mandatory key is requires.",
+    "gold_peps": [
+     517,
+     518
+    ],
+    "answer": "PEP 517 defines the key naming a build backend object [PEP 517]. PEP 518 defines the table requiring a list of build dependencies [PEP 518].",
+    "citations": [
+     517,
+     518
+    ],
+    "retrieved_peps": [
+     517,
+     518,
+     650,
+     725
+    ],
+    "refused": false,
+    "latency": 5.051533300022129,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q41",
+    "type": "factual",
+    "question": "Why can't a variadic type variable be used bare in an annotation instead of with the star operator?",
+    "gold": "Variadic type variables must always be unpacked, to avoid confusion over packed versus unpacked forms and to make visually clear that it is not a normal type variable.",
+    "gold_peps": [
+     646
+    ],
+    "answer": "Type variable tuples must always be used unpacked (prefixed by the star operator). This is done to avoid confusion and improve readability [PEP 646].",
+    "citations": [
+     646
+    ],
+    "retrieved_peps": [
+     526,
+     646
+    ],
+    "refused": false,
+    "latency": 5.415443499980029,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q42",
+    "type": "unanswerable",
+    "question": "How does the Python unless statement differ from an if not condition?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     308,
+     315,
+     548,
+     572
+    ],
+    "refused": true,
+    "latency": 4.009685699944384,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q43",
+    "type": "factual",
+    "question": "When a delegating generator forwards a sent value and the sub-iterator raises StopIteration, what happens?",
+    "gold": "The delegating generator is resumed; any other exception is propagated to it.",
+    "gold_peps": [
+     380
+    ],
+    "answer": "The delegating generator is resumed [PEP 380].",
+    "citations": [
+     380
+    ],
+    "retrieved_peps": [
+     380
+    ],
+    "refused": false,
+    "latency": 3.6895606000325643,
+    "verdict": "partial",
+    "reason": "Lacks mention of exception propagation."
+   },
+   {
+    "id": "q44",
+    "type": "factual",
+    "question": "Why does the number-formatting proposal argue the locale module is a poor fit for thousands separators in multi-threaded servers?",
+    "gold": "The locale setting is global, so it is not suitable for threaded apps serving requests in multiple locales.",
+    "gold_peps": [
+     378
+    ],
+    "answer": "The locale module presents two challenges. First, it is a global setting unsuitable for multi-threaded apps that need to serve-up requests in multiple locales [PEP 378].",
+    "citations": [
+     378
+    ],
+    "retrieved_peps": [
+     331,
+     378
+    ],
+    "refused": false,
+    "latency": 5.270751999982167,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q45",
+    "type": "factual",
+    "question": "Why does the Python style guide discourage assigning a lambda directly to a name?",
+    "gold": "Using a def gives the function the real name instead of '<lambda>', which helps tracebacks, and the assignment removes the only advantage of lambda, namely embedding in a larger expression.",
+    "gold_peps": [
+     8
+    ],
+    "answer": "The Python style guide discourages assigning a lambda directly to a name because it can make tracebacks and string representations less informative, as the resulting function object's name would be generic instead of specifically named [PEP 8].",
+    "citations": [
+     8
+    ],
+    "retrieved_peps": [
+     8,
+     227,
+     572
+    ],
+    "refused": false,
+    "latency": 5.709111400006805,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q46",
+    "type": "factual",
+    "question": "For a dataclass field, what is the zero-argument callable option mainly useful for?",
+    "gold": "It is the default_factory option, which can be used to specify fields with mutable default values.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "The zero-argument callable option, `default_factory`, is mainly useful for specifying fields with mutable default values [PEP 557].",
+    "citations": [
+     557
+    ],
+    "retrieved_peps": [
+     557,
+     712
+    ],
+    "refused": false,
+    "latency": 4.62831030000234,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q47",
+    "type": "factual",
+    "question": "Which other programming language was cited as having a syntax similar to the pipe operator for combining types?",
+    "gold": "Scala.",
+    "gold_peps": [
+     604
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     554,
+     677,
+     695
+    ],
+    "refused": true,
+    "latency": 3.7591986999614164,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q48",
+    "type": "named",
+    "question": "What is the default value of the frozen parameter of the dataclass decorator in PEP 557?",
+    "gold": "False.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "The default value of the frozen parameter of the dataclass decorator in PEP 557 is False [PEP 557].",
+    "citations": [
+     557
+    ],
+    "retrieved_peps": [
+     557,
+     681
+    ],
+    "refused": false,
+    "latency": 4.627608600072563,
+    "verdict": "correct",
+    "reason": "The candidate answer provides the correct default value for the frozen parameter."
+   },
+   {
+    "id": "q49",
+    "type": "unanswerable",
+    "question": "What is the exact binary wire format of pickle protocol 6?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     307,
+     467,
+     574,
+     3154
+    ],
+    "refused": true,
+    "latency": 4.081712300016079,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q50",
+    "type": "named",
+    "question": "How does PEP 484 say a type hint can refer to a name that has not been defined yet?",
+    "gold": "By expressing it as a string literal, to be resolved later.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "PEP 484 states that when a type hint contains names that have not been defined yet, those definitions may be expressed as string literals [PEP 484: Type Hints (status: Final) / section: Type Definition Syntax > Forward references].",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     424,
+     484
+    ],
+    "refused": false,
+    "latency": 6.010369399969932,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q51",
+    "type": "factual",
+    "question": "Can a structural pattern matching statement have several catch-all cases, and where must it go?",
+    "gold": "At most one irrefutable case block is allowed, and it must be last.",
+    "gold_peps": [
+     634
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     622,
+     634,
+     635,
+     636
+    ],
+    "refused": true,
+    "latency": 4.0186644999776036,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q52",
+    "type": "factual",
+    "question": "If a parameter has a default of None but is annotated with a non-optional type, should type checkers silently treat it as Optional?",
+    "gold": "No. An earlier version allowed that implicit Optional, but it is no longer recommended; type checkers should move towards requiring the optional type to be explicit.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "No, type checkers should not silently treat it as Optional. According to PEP 484 [PEP 484], the recommended behavior is that type checkers should require the optional type to be made explicit.",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     696,
+     835
+    ],
+    "refused": false,
+    "latency": 5.594536799995694,
+    "verdict": "correct",
+    "reason": "The candidate answer aligns with the key facts provided in the reference answer."
+   },
+   {
+    "id": "q53",
+    "type": "named",
+    "question": "Does PEP 3333 invalidate servers or applications that were compliant under Python 2.x?",
+    "gold": "No; no changes were made that invalidate previously-compliant servers or applications under Python 2.x.",
+    "gold_peps": [
+     3333
+    ],
+    "answer": "No changes were made that invalidate previously-compliant servers or applications under Python 2.x. If your 2.x application or server is compliant to PEP 333, it is also compliant with this PEP [PEP 3333].",
+    "citations": [
+     3333
+    ],
+    "retrieved_peps": [
+     333,
+     3333
+    ],
+    "refused": false,
+    "latency": 16.10214230004931,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q54",
+    "type": "unanswerable",
+    "question": "What is the default worker timeout in seconds for gunicorn?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     418,
+     789,
+     807,
+     3156
+    ],
+    "refused": true,
+    "latency": 14.71130850003101,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q55",
+    "type": "factual",
+    "question": "How many guiding aphorisms did Tim Peters have in mind for Python's design, and how many were actually written down?",
+    "gold": "There were 20 aphorisms, of which only 19 were written down.",
+    "gold_peps": [
+     20
+    ],
+    "answer": "Tim Peters had 20 guiding aphorisms in mind for Python's design, but only 19 of which have been written down [PEP 20].",
+    "citations": [
+     20
+    ],
+    "retrieved_peps": [
+     20,
+     289,
+     327,
+     414,
+     572
+    ],
+    "refused": false,
+    "latency": 17.756819600006565,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q56",
+    "type": "factual",
+    "question": "In the no-GIL CPython design, which mechanism contributes most to the extra execution overhead?",
+    "gold": "Biased reference counting is the largest contributor, followed by per-object locking.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "According to [PEP 703], the largest contribution to execution overhead in the no-GIL CPython design is biased reference counting followed by per-object locking.",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703
+    ],
+    "refused": false,
+    "latency": 17.44860050000716,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q57",
+    "type": "named",
+    "question": "Under the acceptance conditions of PEP 683, were types lacking the reset-in-dealloc fix immortalized in CPython?",
+    "gold": "No; they were not immortalized in CPython's code.",
+    "gold_peps": [
+     683
+    ],
+    "answer": "No, types without the reset-in-dealloc fix were not immortalized in CPython according to the acceptance conditions [PEP 683].",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     683,
+     684
+    ],
+    "refused": false,
+    "latency": 19.22251450002659,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q58",
+    "type": "factual",
+    "question": "What type must the collected keyword arguments of a function be exposed as, to preserve their call order?",
+    "gold": "An ordered mapping.",
+    "gold_peps": [
+     468
+    ],
+    "answer": "Starting in Python 3.6, the collected keyword arguments will be exposed as an ordered mapping [PEP 468].",
+    "citations": [
+     468
+    ],
+    "retrieved_peps": [
+     468
+    ],
+    "refused": false,
+    "latency": 14.584680099971592,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately states when and how keyword arguments are exposed as an ordered mapping."
+   },
+   {
+    "id": "q59",
+    "type": "factual",
+    "question": "What should a build frontend do if a project's pyproject.toml has no build backend specified?",
+    "gold": "It should revert to legacy behaviour and run setup.py, directly or via the legacy setuptools backend.",
+    "gold_peps": [
+     517
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources focus on how to set up the Python environment for build backends and what requirements must be met, but they do not specify what a build frontend should do if no build backend is specified in pyproject.toml.",
+    "citations": [],
+    "retrieved_peps": [
+     517,
+     660
+    ],
+    "refused": true,
+    "latency": 16.512503000034485,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q60",
+    "type": "factual",
+    "question": "Does the language itself give any meaning to function annotations?",
+    "gold": "No. Annotations only take on meaning when interpreted by third-party libraries.",
+    "gold_peps": [
+     3107
+    ],
+    "answer": "No, the language itself does not attach any particular meaning or significance to function annotations [PEP 3107].",
+    "citations": [
+     3107
+    ],
+    "retrieved_peps": [
+     484,
+     563,
+     3107
+    ],
+    "refused": false,
+    "latency": 15.276243900007103,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   }
+  ]
+ },
+ "hybrid_route_rerank": {
+  "summary": {
+   "accuracy": 0.817,
+   "accuracy[factual]": 0.783,
+   "accuracy[named]": 0.917,
+   "accuracy[multi]": 0.8,
+   "refusal_accuracy[unanswerable]": 1.0,
+   "false_refusal_rate": 0.096,
+   "citation_precision": 0.946,
+   "hallucinated_citation_rate": 0.019,
+   "uncited_answer_rate": 0.019,
+   "latency_p50_s": 3.94
+  },
+  "rows": [
+   {
+    "id": "q01",
+    "type": "factual",
+    "question": "How long are the deprecated typing aliases for builtin collections guaranteed to stay before they could be removed?",
+    "gold": "Removal will occur no sooner than Python 3.9's end of life, scheduled for October 2025.",
+    "gold_peps": [
+     585
+    ],
+    "answer": "The deprecated typing aliases for built-in collections are scheduled to be removed in Python 3.9, as stated in [PEP 585].",
+    "citations": [
+     585
+    ],
+    "retrieved_peps": [
+     393,
+     585,
+     606,
+     702,
+     2026
+    ],
+    "refused": false,
+    "latency": 4.79183419997571,
+    "verdict": "partial",
+    "reason": "It mentions the removal version but lacks the specific end of life date."
+   },
+   {
+    "id": "q02",
+    "type": "multi",
+    "question": "How did the new generics syntax change declaring a type variable compared with the original TypeVar factory approach?",
+    "gold": "Originally TypeVar was a factory called with a redundant quoted name; the new syntax removes the need for that redundant name.",
+    "gold_peps": [
+     484,
+     695
+    ],
+    "answer": "The new generics syntax allows using square brackets to declare type variables directly in the definition of classes, functions, and type aliases. For example, instead of using `TypeVar('T')`, you can now write `T` within the definition [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     484,
+     646,
+     695
+    ],
+    "refused": false,
+    "latency": 4.174821300024632,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that the new generics syntax removes the need for a redundant quoted name by using square brackets directly."
+   },
+   {
+    "id": "q03",
+    "type": "factual",
+    "question": "Why was JSON rejected as the file format for declaring build requirements?",
+    "gold": "Its syntax is verbose and hard for humans to edit, and it does not allow comments.",
+    "gold_peps": [
+     518
+    ],
+    "answer": "The JSON format was initially considered but quickly rejected because its syntax is more verbose than necessary and does not allow for comments, making it less human-editable compared to other formats like TOML [PEP 518].",
+    "citations": [
+     518
+    ],
+    "retrieved_peps": [
+     518,
+     739
+    ],
+    "refused": false,
+    "latency": 3.6878184000379406,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q04",
+    "type": "named",
+    "question": "Until roughly when does PEP 745 say security updates for Python 3.14 are expected?",
+    "gold": "Until approximately October 2030, five years after 3.14.0 final (source-only).",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Security updates for Python 3.14 are expected until approximately October 2030 [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     745,
+     790,
+     826
+    ],
+    "refused": false,
+    "latency": 3.0251564999925904,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q05",
+    "type": "multi",
+    "question": "What did generator functions originally forbid on return statements, and how did yield from later change what return does in a generator?",
+    "gold": "The original generators proposal disallowed an expression on return; the yield from proposal makes return expr raise StopIteration(expr).",
+    "gold_peps": [
+     255,
+     380
+    ],
+    "answer": "Generator functions originally forbade expressions on return statements [PEP 255]. Yield from later allowed `return` without an expression in asynchronous generators, making it more flexible but still not allowing expressions [PEP 828].",
+    "citations": [
+     255,
+     828
+    ],
+    "retrieved_peps": [
+     255,
+     340,
+     479,
+     828
+    ],
+    "refused": false,
+    "latency": 3.7447684999206103,
+    "verdict": "partial",
+    "reason": "It mentions the prohibition of expressions on return but misses the part about yield from making return expr raise StopIteration."
+   },
+   {
+    "id": "q06",
+    "type": "unanswerable",
+    "question": "How does PyTorch's autograd engine record operations to build the backward graph?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     517,
+     605,
+     815
+    ],
+    "refused": true,
+    "latency": 3.0932993000024,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q07",
+    "type": "named",
+    "question": "According to PEP 8, what is the maximum line length for docstrings and comments?",
+    "gold": "72 characters (79 for other lines).",
+    "gold_peps": [
+     8
+    ],
+    "answer": "The maximum line length for docstrings and comments should be limited to 72 characters [PEP 8].",
+    "citations": [
+     8
+    ],
+    "retrieved_peps": [
+     8,
+     257
+    ],
+    "refused": false,
+    "latency": 3.0551593999844044,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from PEP 8."
+   },
+   {
+    "id": "q08",
+    "type": "factual",
+    "question": "How does the scope created by the new generic-class syntax differ from an ordinary function or class scope?",
+    "gold": "It acts like a temporary overlay on the containing scope, containing only the new type parameters while other names resolve in the enclosing scope.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The new `def695` scopes, used for generic classes and functions, behave like function scopes but have access to names defined in enclosing class scopes. Ordinary function scopes do not have this access [PEP 695].",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     572,
+     695
+    ],
+    "refused": false,
+    "latency": 3.7088808999978937,
+    "verdict": "partial",
+    "reason": "It mentions access to enclosing class scopes but misses the key point about type parameters."
+   },
+   {
+    "id": "q09",
+    "type": "factual",
+    "question": "Why was the walrus operator not allowed unparenthesized as a bare expression statement?",
+    "gold": "To keep a single clear choice between an assignment statement and an assignment expression: there is no syntactic position where both are valid.",
+    "gold_peps": [
+     572
+    ],
+    "answer": "Unparenthesized assignment expressions are prohibited at the top level of an expression statement to simplify the choice for the user between an assignment statement and an assignment expression, as there is no syntactic position where both are valid [PEP 572].",
+    "citations": [
+     572
+    ],
+    "retrieved_peps": [
+     463,
+     572,
+     614,
+     798
+    ],
+    "refused": false,
+    "latency": 3.8165083999629132,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q10",
+    "type": "factual",
+    "question": "What benefits does a fixed annual release calendar give core developers regarding the timing of the beta phase?",
+    "gold": "Final releases always land in October, after the core sprint, and the beta phase starts in late May, after the PyCon US sprints.",
+    "gold_peps": [
+     602
+    ],
+    "answer": "The fixed annual release calendar, as described in PEP 602, starts the beta phase in late May, after PyCon US sprints [PEP 602]. This timing helps core developers plan to include Python involvement in their calendars [PEP 602].",
+    "citations": [
+     602
+    ],
+    "retrieved_peps": [
+     602,
+     2026,
+     8002
+    ],
+    "refused": false,
+    "latency": 3.645436000020709,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q11",
+    "type": "factual",
+    "question": "Is it legal to write a lone starred target on the left side of an assignment such as star-a equals a range?",
+    "gold": "No; using the starred expression as a lone assignment target is an error.",
+    "gold_peps": [
+     3132
+    ],
+    "answer": "No, it is not legal to write a lone starred target on the left side of an assignment. According to [PEP 3132], starred expressions are only allowed as assignment targets, and using them anywhere else (except for star-args in function calls) results in a syntax error.",
+    "citations": [
+     3132
+    ],
+    "retrieved_peps": [
+     572,
+     577,
+     824,
+     3132
+    ],
+    "refused": false,
+    "latency": 3.7837364000151865,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q12",
+    "type": "factual",
+    "question": "Why must project metadata fields that a build backend fills in later be explicitly declared as dynamic in pyproject metadata?",
+    "gold": "So that missing metadata is unambiguous: otherwise you could not tell whether it was left out on purpose or will be supplied later by the backend.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "A build back-end MUST raise an error if the metadata specifies a field in dynamic but the build back-end was unable to provide the data for it [PEP 621]. This ensures that the absence of metadata is not ambiguous and requires explicit declaration when dynamic fields are intended [PEP 621, Source 2].",
+    "citations": [
+     621
+    ],
+    "retrieved_peps": [
+     621
+    ],
+    "refused": false,
+    "latency": 4.521705800027121,
+    "verdict": "partial",
+    "reason": "It mentions the requirement for an error but misses the core reason of unambiguity."
+   },
+   {
+    "id": "q13",
+    "type": "factual",
+    "question": "Who gave the @ decorator syntax its nickname, and why?",
+    "gold": "Barry Warsaw called it the 'pie-decorator' syntax, after the Pie-thon Parrot shootout of the time and because the @ looks a little like a pie.",
+    "gold_peps": [
+     318
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     309,
+     318,
+     403
+    ],
+    "refused": true,
+    "latency": 6.460051400004886,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q14",
+    "type": "factual",
+    "question": "If a Python 3 source file carries an explicit encoding declaration, does the default source encoding still apply?",
+    "gold": "No; an explicit encoding declaration takes precedence over the default.",
+    "gold_peps": [
+     3120
+    ],
+    "answer": "No, if a Python 3 source file has an explicit encoding declaration using the magic comment, it takes precedence over the default source encoding [PEP 263].",
+    "citations": [
+     263
+    ],
+    "retrieved_peps": [
+     263,
+     3120
+    ],
+    "refused": false,
+    "latency": 3.488298299955204,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q15",
+    "type": "unanswerable",
+    "question": "How does Kafka consumer group rebalancing interact with asyncio tasks in Python?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     789,
+     3156
+    ],
+    "refused": true,
+    "latency": 3.484819700010121,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q16",
+    "type": "multi",
+    "question": "Python 3 changed the default source file encoding from what to what, and which normalization form are non-ASCII identifiers converted to?",
+    "gold": "From ASCII to UTF-8; identifiers are normalized to NFKC.",
+    "gold_peps": [
+     3120,
+     3131
+    ],
+    "answer": "Python 3 changed the default source file encoding from ASCII to UTF-8 [PEP 3120]. Non-ASCII identifiers are converted to NFKC normalization form [PEP 3131].",
+    "citations": [
+     3120,
+     3131
+    ],
+    "retrieved_peps": [
+     263,
+     3120,
+     3131
+    ],
+    "refused": false,
+    "latency": 3.678865300025791,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q17",
+    "type": "factual",
+    "question": "What identifier policy applies to the standard library after non-ASCII identifiers were allowed?",
+    "gold": "Standard library identifiers must be ASCII-only and should use English words wherever feasible.",
+    "gold_peps": [
+     3131
+    ],
+    "answer": "Identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible [PEP 3131].",
+    "citations": [
+     3131
+    ],
+    "retrieved_peps": [
+     8,
+     3131
+    ],
+    "refused": false,
+    "latency": 3.442917399981525,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q18",
+    "type": "named",
+    "question": "In PEP 695, when is the value of a type alias created with the type statement evaluated?",
+    "gold": "Lazily.",
+    "gold_peps": [
+     695
+    ],
+    "answer": "The value of a type alias created through the `type` statement is evaluated lazily, specifically when the corresponding attribute is accessed. [PEP 695, Runtime Implementation > Lazy Evaluation]",
+    "citations": [
+     695
+    ],
+    "retrieved_peps": [
+     695,
+     749
+    ],
+    "refused": false,
+    "latency": 3.658503799990285,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys that type aliases created with the `type` statement are evaluated lazily."
+   },
+   {
+    "id": "q19",
+    "type": "factual",
+    "question": "Does the mapping a metaclass uses to record class-body definitions have to be a full ordered dict?",
+    "gold": "No; a simple list of (key, value) pairs appended on each insertion is enough.",
+    "gold_peps": [
+     3115
+    ],
+    "answer": "No, the mapping does not have to be a full ordered dict. It can support a limited set of dictionary operations and may just be a Python list of (key,value) pairs [PEP 3115].",
+    "citations": [
+     3115
+    ],
+    "retrieved_peps": [
+     520,
+     3115
+    ],
+    "refused": false,
+    "latency": 3.9311303999857046,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that the mapping does not have to be a full ordered dict."
+   },
+   {
+    "id": "q20",
+    "type": "multi",
+    "question": "Which proposal introduced generators with the yield statement and which introduced generator expressions, and what motivated the latter?",
+    "gold": "PEP 255 introduced generators; PEP 289 introduced generator expressions because many list comprehension uses do not need a full list in memory.",
+    "gold_peps": [
+     255,
+     289
+    ],
+    "answer": "Generators with the `yield` statement were introduced by PEP 255 [PEP 255]. Generator expressions were not directly mentioned in PEP 255 but were introduced later by PEP 279 [PEP 279], which motivated their addition to support a syntax similar to list comprehensions for generators.",
+    "citations": [
+     255,
+     279
+    ],
+    "retrieved_peps": [
+     255,
+     380,
+     798,
+     828
+    ],
+    "refused": false,
+    "latency": 4.2103605000302196,
+    "verdict": "partial",
+    "reason": "It correctly identifies PEP 255 and PEP 279 but incorrectly states the motivation for generator expressions."
+   },
+   {
+    "id": "q21",
+    "type": "factual",
+    "question": "For how long is a given Python 3.14 line expected to get bugfix releases, and at what cadence?",
+    "gold": "About every two months for approximately 24 months.",
+    "gold_peps": [
+     745
+    ],
+    "answer": "Python 3.14 will receive bugfix updates approximately every two months for about 24 months [PEP 745]. After that, security updates (source only) are expected until around October 2030 [PEP 745].",
+    "citations": [
+     745
+    ],
+    "retrieved_peps": [
+     602,
+     745,
+     790,
+     826
+    ],
+    "refused": false,
+    "latency": 3.7228559000068344,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q22",
+    "type": "named",
+    "question": "In PEP 544, what is a class called if it includes a protocol in its MRO?",
+    "gold": "An explicit subclass of the protocol.",
+    "gold_peps": [
+     544
+    ],
+    "answer": "A class that includes a protocol in its MRO is called an explicit subclass of the protocol [PEP 544].",
+    "citations": [
+     544
+    ],
+    "retrieved_peps": [
+     544
+    ],
+    "refused": false,
+    "latency": 3.607017799920868,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q23",
+    "type": "factual",
+    "question": "Why can't a yield be placed inside a try block that has a finally clause in generator functions?",
+    "gold": "There is no guarantee the generator will ever be resumed, hence no guarantee the finally block will run.",
+    "gold_peps": [
+     255
+    ],
+    "answer": "According to PEP 255 [PEP 255], a yield statement is not allowed in the try clause of a try-finally statement inside a generator. This restriction ensures that critical resources are managed carefully, as generators should allocate such resources with great care.",
+    "citations": [
+     255
+    ],
+    "retrieved_peps": [
+     255,
+     325,
+     334,
+     342
+    ],
+    "refused": false,
+    "latency": 3.90558580000652,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q24",
+    "type": "multi",
+    "question": "What were the scheduled final release dates of Python 3.8.0 and Python 3.10.0?",
+    "gold": "3.8.0 final: 2019-10-14; 3.10.0 final: 2021-10-04.",
+    "gold_peps": [
+     569,
+     619
+    ],
+    "answer": "The scheduled final release date for Python 3.8.0 was Monday, 2019-10-14 [PEP 569]. For Python 3.10.0, the final release date was Monday, 2021-10-04 [PEP 619].",
+    "citations": [
+     569,
+     619
+    ],
+    "retrieved_peps": [
+     569,
+     596,
+     598,
+     619
+    ],
+    "refused": false,
+    "latency": 4.629082599945832,
+    "verdict": "correct",
+    "reason": "The candidate answer provides the correct final release dates for Python 3.8.0 and Python 3.10.0."
+   },
+   {
+    "id": "q25",
+    "type": "multi",
+    "question": "Which typing proposal enables forwarding a callable's parameter types, and which enables parameterizing generics over arbitrary numbers of types?",
+    "gold": "ParamSpec (PEP 612) forwards callable parameter types; TypeVarTuple (PEP 646) gives variadic generics.",
+    "gold_peps": [
+     612,
+     646
+    ],
+    "answer": "The proposal that enables forwarding a callable's parameter types is PEP 612 [PEP 612]. It introduces `typing.ParamSpec` and `typing.Concatenate` to support expressing relationships between callables.\n\nFor parameterizing generics over arbitrary numbers of types, PEP 827 proposes the `GenericCallable[Vs, Ty]` type operator [PEP 827].",
+    "citations": [
+     612,
+     827
+    ],
+    "retrieved_peps": [
+     612,
+     677,
+     827
+    ],
+    "refused": false,
+    "latency": 4.6679675000486895,
+    "verdict": "partial",
+    "reason": "PEP 827 is not the correct proposal for variadic generics."
+   },
+   {
+    "id": "q26",
+    "type": "unanswerable",
+    "question": "How does mypy's dmypy daemon cache incremental type-checking results?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     509,
+     728,
+     800
+    ],
+    "refused": true,
+    "latency": 3.16329430002952,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q27",
+    "type": "unanswerable",
+    "question": "How does uvloop's libuv integration schedule callbacks compared with the default asyncio loop?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs. The provided sources focus on the asyncio module's event loop and callback scheduling mechanisms but do not compare these with uvloop or its libuv integration specifics.",
+    "citations": [],
+    "retrieved_peps": [
+     3156
+    ],
+    "refused": true,
+    "latency": 3.785135799960699,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q28",
+    "type": "multi",
+    "question": "What does an object being immortal mean in the immortal-objects proposal, and how does the free-threading proposal mark objects as immortal?",
+    "gold": "Its refcount never reaches 0 so it is never cleaned up; the free-threading design sets the local reference count field to UINT32_MAX.",
+    "gold_peps": [
+     683,
+     703
+    ],
+    "answer": "In the immortal-objects proposal, marking an object as immortal means that its reference count will not be modified by normal Python operations [PEP 683]. Specifically, at the end of runtime initialization, all objects can be marked as immortal to avoid extra costs in incref/decref operations [PEP 683].\n\nFor free-threading, objects are marked as immortal during runtime init, ensuring that these objects do not incur additional overhead from incref/decref operations. This is done to improve performance by avoiding the usual reference counting mechanisms for certain objects that won't be modified and can be safely shared between threads without locking [PEP 683].",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     683
+    ],
+    "refused": false,
+    "latency": 5.313015199964866,
+    "verdict": "partial",
+    "reason": "The candidate answer does not correctly state that the free-threading proposal marks objects as immortal by setting the local reference count field to UINT32_MAX."
+   },
+   {
+    "id": "q29",
+    "type": "factual",
+    "question": "In a generator expression, which part is evaluated immediately and which is delayed?",
+    "gold": "The first (outermost) for-expression is evaluated immediately; the remaining expressions are evaluated when the generator is executed.",
+    "gold_peps": [
+     289
+    ],
+    "answer": "The outermost `for`-expression is evaluated immediately, while the other expressions are deferred until the generator is run [PEP 289].",
+    "citations": [
+     289
+    ],
+    "retrieved_peps": [
+     289,
+     828,
+     3142
+    ],
+    "refused": false,
+    "latency": 4.398136699979659,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q30",
+    "type": "factual",
+    "question": "Can I put a backslash inside the braces of an f-string expression to escape a quote?",
+    "gold": "No. Backslashes may not appear inside the expression portions of f-strings; use a different quote type inside the expression instead.",
+    "gold_peps": [
+     498
+    ],
+    "answer": "No, backslashes may not appear inside the expression portions of f-strings [PEP 498].",
+    "citations": [
+     498
+    ],
+    "retrieved_peps": [
+     498,
+     701,
+     3101
+    ],
+    "refused": false,
+    "latency": 3.482948699966073,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q31",
+    "type": "named",
+    "question": "Why does PEP 3105 say print should not be a statement?",
+    "gold": "Print is the only application-level functionality with a dedicated statement, and syntax should be a last resort for what cannot be done without compiler help.",
+    "gold_peps": [
+     3105
+    ],
+    "answer": "PEP 3105 suggests that `print` should not be a statement because it is the only application-level functionality that has a dedicated statement. Within Python, syntax is generally used as a last resort for things that can't be done without help from the compiler. Since print doesn't qualify for such an exception, making it a function would align better with Python's design philosophy [PEP 3105].",
+    "citations": [
+     3105
+    ],
+    "retrieved_peps": [
+     214,
+     3100,
+     3105
+    ],
+    "refused": false,
+    "latency": 4.80148049996933,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key points from the reference answer."
+   },
+   {
+    "id": "q32",
+    "type": "named",
+    "question": "According to PEP 343, which earlier PEP was the original with-statement proposal?",
+    "gold": "PEP 310, Reliable Acquisition/Release Pairs.",
+    "gold_peps": [
+     343
+    ],
+    "answer": "The original with-statement proposal was :pep:`310` [PEP 343].",
+    "citations": [
+     343
+    ],
+    "retrieved_peps": [
+     343
+    ],
+    "refused": false,
+    "latency": 3.135041099973023,
+    "verdict": "incorrect",
+    "reason": "PEP 310 is mentioned, but not as the original proposal."
+   },
+   {
+    "id": "q33",
+    "type": "unanswerable",
+    "question": "What retry backoff does Celery apply by default to failed tasks?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     475,
+     577
+    ],
+    "refused": true,
+    "latency": 3.3878473000368103,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q34",
+    "type": "named",
+    "question": "What file encoding must tools assume for a readme file path according to PEP 621?",
+    "gold": "UTF-8.",
+    "gold_peps": [
+     621
+    ],
+    "answer": "Tools must assume the file's encoding is UTF-8 [PEP 621].",
+    "citations": [
+     621
+    ],
+    "retrieved_peps": [
+     621
+    ],
+    "refused": false,
+    "latency": 3.106786100019235,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q35",
+    "type": "factual",
+    "question": "What happens if the name string passed to a parameter specification variable differs from the variable it is assigned to?",
+    "gold": "It is rejected: the name must match, so ParamSpec(\"WrongName\") assigned to P is invalid.",
+    "gold_peps": [
+     612
+    ],
+    "answer": "If the name string passed to a parameter specification variable differs from the variable it is assigned to, the declaration is rejected because P = ParamSpec(\"WrongName\") # Rejected because P =/= WrongName [PEP 612].",
+    "citations": [
+     612
+    ],
+    "retrieved_peps": [
+     612,
+     695
+    ],
+    "refused": false,
+    "latency": 3.622717499965802,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q36",
+    "type": "factual",
+    "question": "What problems led to redesigning native coroutines as their own type distinct from generators after the first 3.5 beta?",
+    "gold": "Problems integrating native coroutines into the Tornado web server led to making coroutines a completely distinct type from generators.",
+    "gold_peps": [
+     492
+    ],
+    "answer": "Feedback on the initial beta release of Python 3.5 resulted in a redesign of the object model supporting this PEP to more clearly separate native coroutines from generators, due to problems encountered attempting to integrate support for native coroutines into the Tornado web server [PEP 492, Source 1].",
+    "citations": [
+     492
+    ],
+    "retrieved_peps": [
+     492
+    ],
+    "refused": false,
+    "latency": 4.530852000054438,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q37",
+    "type": "multi",
+    "question": "Which rejected generator-based coroutine proposal came before native async/await, and what is the stated aim of async/await?",
+    "gold": "Cofunctions (PEP 3152); async/await aims to make explicitly asynchronous, concurrent code easier and more Pythonic.",
+    "gold_peps": [
+     492,
+     3152
+    ],
+    "answer": "The rejected generator-based coroutine proposal that came before native async/await was \"Cofunctions\" (PEP 3152) [PEP 492]. The stated aim of async/await is to make coroutines a native Python language feature, clearly separating them from generators and improving the reliability of defining coroutines without relying on specific libraries. This also enables better static code analysis and refactoring [PEP 492].",
+    "citations": [
+     492
+    ],
+    "retrieved_peps": [
+     492
+    ],
+    "refused": false,
+    "latency": 8.24807079997845,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q38",
+    "type": "multi",
+    "question": "The original function annotations proposal left their meaning open; which later proposal gave them a standard meaning and why?",
+    "gold": "The annotations proposal left semantics to third-party libraries; the type hints proposal standardized a vocabulary for static type analysis since community usage had grown.",
+    "gold_peps": [
+     484,
+     3107
+    ],
+    "answer": "The original function annotations proposal (:pep:`3107`) left their meaning open. Later, :pep:`484` introduced a standard meaning for annotations by providing type hints [PEP 484]. This was done to support static type analysis and provide a baseline for tools within the standard library [PEP 484].",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     563,
+     593,
+     649
+    ],
+    "refused": false,
+    "latency": 6.2724257000372745,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q39",
+    "type": "named",
+    "question": "In PEP 703's biased reference counting, what kind of instructions does the owning thread use to modify the local reference count?",
+    "gold": "Non-atomic instructions.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "In PEP 703's biased reference counting, the owning thread uses non-atomic instructions to modify a \"local\" reference count. [PEP 703]",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703
+    ],
+    "refused": false,
+    "latency": 3.679136599996127,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q40",
+    "type": "multi",
+    "question": "Which PEP defines the key naming a build backend object and which defines the table requiring a list of build dependencies?",
+    "gold": "PEP 517 defines build-backend; PEP 518 defines the build-system table whose mandatory key is requires.",
+    "gold_peps": [
+     517,
+     518
+    ],
+    "answer": "PEP 517 defines the key naming a build backend object [PEP 517]. PEP 518 defines the table requiring a list of build dependencies [PEP 518].",
+    "citations": [
+     517,
+     518
+    ],
+    "retrieved_peps": [
+     517,
+     518,
+     650,
+     725
+    ],
+    "refused": false,
+    "latency": 3.9445617999881506,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q41",
+    "type": "factual",
+    "question": "Why can't a variadic type variable be used bare in an annotation instead of with the star operator?",
+    "gold": "Variadic type variables must always be unpacked, to avoid confusion over packed versus unpacked forms and to make visually clear that it is not a normal type variable.",
+    "gold_peps": [
+     646
+    ],
+    "answer": "Type variable tuples must always be unpacked using the star operator to avoid confusion and improve readability [PEP 646].",
+    "citations": [
+     646
+    ],
+    "retrieved_peps": [
+     526,
+     646
+    ],
+    "refused": false,
+    "latency": 3.5446316999732517,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q42",
+    "type": "unanswerable",
+    "question": "How does the Python unless statement differ from an if not condition?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs. The provided sources discuss while loops and conditional expressions but do not mention an \"unless\" statement or how it differs from an \"if not\" condition.",
+    "citations": [],
+    "retrieved_peps": [
+     308,
+     315,
+     548
+    ],
+    "refused": true,
+    "latency": 6.106349400011823,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q43",
+    "type": "factual",
+    "question": "When a delegating generator forwards a sent value and the sub-iterator raises StopIteration, what happens?",
+    "gold": "The delegating generator is resumed; any other exception is propagated to it.",
+    "gold_peps": [
+     380
+    ],
+    "answer": "If the sub-iterator raises StopIteration after receiving a sent value, the delegating generator resumes execution [PEP 380].",
+    "citations": [
+     380
+    ],
+    "retrieved_peps": [
+     380,
+     479
+    ],
+    "refused": false,
+    "latency": 3.5177610000246204,
+    "verdict": "correct",
+    "reason": "The candidate answer conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q44",
+    "type": "factual",
+    "question": "Why does the number-formatting proposal argue the locale module is a poor fit for thousands separators in multi-threaded servers?",
+    "gold": "The locale setting is global, so it is not suitable for threaded apps serving requests in multiple locales.",
+    "gold_peps": [
+     378
+    ],
+    "answer": "The locale module presents challenges for multi-threaded applications because it uses global settings [PEP 378]. This makes it unsuitable for serving requests in multiple locales simultaneously [PEP 378].",
+    "citations": [
+     378
+    ],
+    "retrieved_peps": [
+     331,
+     378
+    ],
+    "refused": false,
+    "latency": 3.7920387000776827,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that the locale module's global settings make it unsuitable for multi-threaded applications serving requests in multiple locales."
+   },
+   {
+    "id": "q45",
+    "type": "factual",
+    "question": "Why does the Python style guide discourage assigning a lambda directly to a name?",
+    "gold": "Using a def gives the function the real name instead of '<lambda>', which helps tracebacks, and the assignment removes the only advantage of lambda, namely embedding in a larger expression.",
+    "gold_peps": [
+     8
+    ],
+    "answer": "The Python style guide discourages assigning a lambda directly to a name because it has a negative effect on traceback intelligibility and other aspects of introspection [Source 1, PEP 403]. Using an assignment statement for lambdas instead of anonymous ones can make tracebacks more useful and easier to understand [Source 2, PEP 403].",
+    "citations": [],
+    "retrieved_peps": [
+     8,
+     403,
+     572
+    ],
+    "refused": false,
+    "latency": 4.316757099993993,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key points about tracebacks and introspection from the reference answer."
+   },
+   {
+    "id": "q46",
+    "type": "factual",
+    "question": "For a dataclass field, what is the zero-argument callable option mainly useful for?",
+    "gold": "It is the default_factory option, which can be used to specify fields with mutable default values.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     557,
+     712
+    ],
+    "refused": true,
+    "latency": 3.3338513000053354,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q47",
+    "type": "factual",
+    "question": "Which other programming language was cited as having a syntax similar to the pipe operator for combining types?",
+    "gold": "Scala.",
+    "gold_peps": [
+     604
+    ],
+    "answer": "I don't know based on the PEPs. The sources mention Scala, F#, OCaml, and Haskell using arrow syntax for function types but do not specifically reference a pipe operator for combining types.",
+    "citations": [],
+    "retrieved_peps": [
+     677
+    ],
+    "refused": true,
+    "latency": 13.558424499991816,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q48",
+    "type": "named",
+    "question": "What is the default value of the frozen parameter of the dataclass decorator in PEP 557?",
+    "gold": "False.",
+    "gold_peps": [
+     557
+    ],
+    "answer": "The default value of the `frozen` parameter of the `dataclass` decorator in PEP 557 is False. [PEP 557]",
+    "citations": [
+     557
+    ],
+    "retrieved_peps": [
+     557
+    ],
+    "refused": false,
+    "latency": 8.742712199978996,
+    "verdict": "correct",
+    "reason": "The candidate answer provides the correct default value for the frozen parameter."
+   },
+   {
+    "id": "q49",
+    "type": "unanswerable",
+    "question": "What is the exact binary wire format of pickle protocol 6?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     307,
+     574
+    ],
+    "refused": true,
+    "latency": 21.859320799994748,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q50",
+    "type": "named",
+    "question": "How does PEP 484 say a type hint can refer to a name that has not been defined yet?",
+    "gold": "By expressing it as a string literal, to be resolved later.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "PEP 484 says that when a type hint contains names that have not been defined yet, you can express the definition as a string literal. For example, in a class definition where the class name is used in its own method signatures, you would write `'Tree'` instead of `Tree`. [PEP 484]",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     563
+    ],
+    "refused": false,
+    "latency": 25.614213499997277,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that type hints can use string literals for names not yet defined."
+   },
+   {
+    "id": "q51",
+    "type": "factual",
+    "question": "Can a structural pattern matching statement have several catch-all cases, and where must it go?",
+    "gold": "At most one irrefutable case block is allowed, and it must be last.",
+    "gold_peps": [
+     634
+    ],
+    "answer": "I don't know based on the PEPs. The provided sources do not discuss multiple catch-all cases in structural pattern matching statements.",
+    "citations": [],
+    "retrieved_peps": [
+     622,
+     635,
+     636
+    ],
+    "refused": true,
+    "latency": 9.799012299976312,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q52",
+    "type": "factual",
+    "question": "If a parameter has a default of None but is annotated with a non-optional type, should type checkers silently treat it as Optional?",
+    "gold": "No. An earlier version allowed that implicit Optional, but it is no longer recommended; type checkers should move towards requiring the optional type to be explicit.",
+    "gold_peps": [
+     484
+    ],
+    "answer": "No, type checkers should not treat the parameter as Optional if it is annotated with a non-optional type even though the default value is None [PEP 484].",
+    "citations": [
+     484
+    ],
+    "retrieved_peps": [
+     484,
+     645,
+     696
+    ],
+    "refused": false,
+    "latency": 14.005483700020704,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q53",
+    "type": "named",
+    "question": "Does PEP 3333 invalidate servers or applications that were compliant under Python 2.x?",
+    "gold": "No; no changes were made that invalidate previously-compliant servers or applications under Python 2.x.",
+    "gold_peps": [
+     3333
+    ],
+    "answer": "No changes were made that invalidate previously-compliant servers or applications under Python 2.x. If your 2.x application or server is compliant to PEP 333, it is also compliant with this PEP [PEP 3333].",
+    "citations": [
+     3333
+    ],
+    "retrieved_peps": [
+     3333
+    ],
+    "refused": false,
+    "latency": 16.35979539999971,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts of the reference answer."
+   },
+   {
+    "id": "q54",
+    "type": "unanswerable",
+    "question": "What is the default worker timeout in seconds for gunicorn?",
+    "gold": "Not covered by the PEPs.",
+    "gold_peps": [],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     418,
+     789,
+     807
+    ],
+    "refused": true,
+    "latency": 25.827547800028697,
+    "verdict": "correct",
+    "reason": "refused"
+   },
+   {
+    "id": "q55",
+    "type": "factual",
+    "question": "How many guiding aphorisms did Tim Peters have in mind for Python's design, and how many were actually written down?",
+    "gold": "There were 20 aphorisms, of which only 19 were written down.",
+    "gold_peps": [
+     20
+    ],
+    "answer": "Tim Peters had 20 guiding aphorisms in mind for Python's design, but only 19 were actually written down [PEP 20].",
+    "citations": [
+     20
+    ],
+    "retrieved_peps": [
+     20,
+     289,
+     572,
+     577
+    ],
+    "refused": false,
+    "latency": 8.575932999956422,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q56",
+    "type": "factual",
+    "question": "In the no-GIL CPython design, which mechanism contributes most to the extra execution overhead?",
+    "gold": "Biased reference counting is the largest contributor, followed by per-object locking.",
+    "gold_peps": [
+     703
+    ],
+    "answer": "According to [PEP 703], the largest contribution to execution overhead in the no-GIL builds of CPython is biased reference counting followed by per-object locking.",
+    "citations": [
+     703
+    ],
+    "retrieved_peps": [
+     703
+    ],
+    "refused": false,
+    "latency": 14.400186700047925,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   },
+   {
+    "id": "q57",
+    "type": "named",
+    "question": "Under the acceptance conditions of PEP 683, were types lacking the reset-in-dealloc fix immortalized in CPython?",
+    "gold": "No; they were not immortalized in CPython's code.",
+    "gold_peps": [
+     683
+    ],
+    "answer": "No, according to the acceptance conditions [PEP 683], types without the reset-in-dealloc fix were not immortalized in CPython's code.",
+    "citations": [
+     683
+    ],
+    "retrieved_peps": [
+     683
+    ],
+    "refused": false,
+    "latency": 16.026008899963927,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact from the reference answer."
+   },
+   {
+    "id": "q58",
+    "type": "factual",
+    "question": "What type must the collected keyword arguments of a function be exposed as, to preserve their call order?",
+    "gold": "An ordered mapping.",
+    "gold_peps": [
+     468
+    ],
+    "answer": "The collected keyword arguments of a function will be exposed as an ordered mapping, similar to OrderedDict, but not necessarily OrderedDict itself [PEP 468].",
+    "citations": [
+     468
+    ],
+    "retrieved_peps": [
+     468
+    ],
+    "refused": false,
+    "latency": 8.726321200025268,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key fact that keyword arguments are exposed as an ordered mapping, and provides a relevant example."
+   },
+   {
+    "id": "q59",
+    "type": "factual",
+    "question": "What should a build frontend do if a project's pyproject.toml has no build backend specified?",
+    "gold": "It should revert to legacy behaviour and run setup.py, directly or via the legacy setuptools backend.",
+    "gold_peps": [
+     517
+    ],
+    "answer": "I don't know based on the PEPs.",
+    "citations": [],
+    "retrieved_peps": [
+     517,
+     621,
+     660,
+     662
+    ],
+    "refused": true,
+    "latency": 15.521552799968049,
+    "verdict": "incorrect",
+    "reason": "refused an answerable question"
+   },
+   {
+    "id": "q60",
+    "type": "factual",
+    "question": "Does the language itself give any meaning to function annotations?",
+    "gold": "No. Annotations only take on meaning when interpreted by third-party libraries.",
+    "gold_peps": [
+     3107
+    ],
+    "answer": "No, the language itself does not attach any particular meaning or significance to function annotations [PEP 3107]. The meaning of annotations comes from third-party libraries that interpret them [PEP 3107, PEP 484].",
+    "citations": [
+     3107
+    ],
+    "retrieved_peps": [
+     484,
+     593,
+     849,
+     3107
+    ],
+    "refused": false,
+    "latency": 10.02028810000047,
+    "verdict": "correct",
+    "reason": "The candidate answer accurately conveys the key facts from the reference answer."
+   }
+  ]
+ }
+}

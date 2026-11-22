@@ -1,0 +1,6 @@
+﻿# corpus is cloned separately (see README); generated artifacts are rebuilt by the pipeline
+data_raw_peps/
+data/
+__pycache__/
+.ruff_cache/
+results/gen_log.txt
