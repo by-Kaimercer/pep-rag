@@ -19,7 +19,8 @@ Rules:
 
 def format_sources(chunks):
     return "\n\n".join(
-        f"[Source {n + 1}] PEP {c['pep']}: {c['title']} (status: {c['status']}) / section: {c['section']}\n{c['text']}"
+        f"[Source {n + 1}] PEP {c['pep']}: {c['title']} (status: {c['status']}"
+        f"{', Python-Version: ' + c['python_version'] if c['python_version'] else ''}) / section: {c['section']}\n{c['text']}"
         for n, c in enumerate(chunks)
     )
 
